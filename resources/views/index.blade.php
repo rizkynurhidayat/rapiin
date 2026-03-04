@@ -11,7 +11,6 @@
 </head>
 <body>
   
-
 <!-- Navbar -->
 <section id="Beranda">
 <nav class="nav">
@@ -189,7 +188,7 @@
   <div class="footer-container">
     <div class="footer-content">
       <div class="footer-col brand-info">
-        <img src="icon/image 23.png" alt="logo techade" class="footer-logo">
+        <img src="{{ asset ('rapiin') }}/icon/image 23.png" alt="logo techade" class="footer-logo">
         <p>Solusi point of sale untuk mengelola operasional bisnis secara lebih mudah dan terstruktur.</p>
         <div class="social-icons">
           <a href="#"><img src="{{ asset ('rapiin') }}/icon/gg_facebook.png" alt="facebook"></a>
