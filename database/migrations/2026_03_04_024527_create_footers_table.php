@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('footers', function (Blueprint $table) {
             $table->id();
+            $table->string('instagram');
+            $table->string('tiktok');
+            $table->string('twitter');
+            $table->string('facebook');
+            $table->string('alamat');
+            $table->string('kontak');
             $table->timestamps();
         });
     }
