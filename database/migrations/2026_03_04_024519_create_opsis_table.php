@@ -13,10 +13,14 @@ return new class extends Migration
     {
         Schema::create('opsis', function (Blueprint $table) {
             $table->id();
+            $table->string('image');
+            $table->string('judul');
+            $table->string('subtitle');
+            $table->string('title');
+            $table->string('button');
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      */
