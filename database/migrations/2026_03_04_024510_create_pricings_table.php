@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('pricings', function (Blueprint $table) {
             $table->id();
+            $table->string('judul');
+            $table->string('sub_judul')->nullable();
+            $table->string('label')->nullable();
+            $table->string('icon')->nullable();
+            $table->string('kategori');
+            $table->integer('harga');
+            $table -> string('button');
+            $table -> string ('isi');
             $table->timestamps();
         });
     }
