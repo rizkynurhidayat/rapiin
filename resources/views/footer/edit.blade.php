@@ -30,6 +30,14 @@
               </div>
             </div>
 
+            {{-- Facebook --}}
+            <div class="row mb-3">
+              <label class="col-sm-2 col-form-label" for="facebook">Facebook</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="facebook" name="facebook" value="{{ $footer->facebook }}" placeholder="Input Facebook"/>
+              </div>
+            </div>
+
             {{-- TikTok --}}
             <div class="row mb-3">
               <label class="col-sm-2 col-form-label" for="tiktok">TikTok</label>
@@ -38,11 +46,11 @@
               </div>
             </div>
 
-            {{-- Nomor --}}
+            {{-- Kontak --}}
             <div class="row mb-3">
-              <label class="col-sm-2 col-form-label" for="phone">Nomor</label>
+              <label class="col-sm-2 col-form-label" for="kontak">Kontak</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="phone" name="phone" value="{{ $footer->phone }}" placeholder="Input Nomor"/>
+                <input type="text" class="form-control" id="kontak" name="kontak" value="{{ $footer->kontak }}" placeholder="Input Kontak"/>
               </div>
             </div>
 

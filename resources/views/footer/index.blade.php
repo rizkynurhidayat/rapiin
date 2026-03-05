@@ -22,9 +22,11 @@
           <tr>
             <th>Twitter</th>
             <th>Instagram</th>
+            <th>Facebook</th>
             <th>TikTok</th>
-            <th>Nomor</th>
+            <th>Kontak</th>
             <th>Alamat</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -32,15 +34,10 @@
             <tr>
               <td>{{ $footer->twitter }}</td>
               <td>{{ $footer->instagram }}</td>
+              <td>{{ $footer->facebook }}</td>
               <td>{{ $footer->tiktok }}</td>
-              <td>{{ $footer->phone }}</td>
+              <td>{{ $footer->kontak }}</td>
               <td>{{ $footer->alamat }}</td>
-              <td>
-                @if(Storage::disk('public')->exists($footer->logo))
-                  <img src="{{ asset('storage/' . $footer->logo) }}" width="80">
-                @else
-                  <span class="text-muted">No Logo</span>
-                @endif
               </td>
               <td>
                 <div class="dropdown">

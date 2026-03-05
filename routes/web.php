@@ -38,7 +38,7 @@ Route::middleware('auth')->group(function () {
 
 
     //route logout
-    Route::post('/logout', [App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/users', [AdminController::class, 'users'] ) -> name('users.index');
     Route::get('/users/{user}/edit', [AdminController::class, 'edit'] ) -> name('users.edit');
     Route::put('/users/{user}', [AdminController::class, 'update'] ) -> name('users.update');

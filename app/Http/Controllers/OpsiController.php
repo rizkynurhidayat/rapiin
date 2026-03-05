@@ -11,27 +11,29 @@ class OpsiController extends Controller
 {
     public function view()
     {
+        $user = Auth::user();
+        $opsis = Opsi::all();
         return view('opsi.index', [
             'opsis' => Opsi::all(),
             'username' => Auth::user()['name']
         ]);
     }
 
-    public function create()
-    {
+    public function create() {
+        $user = Auth::user();
         return view('opsi.create', [
-            'username' => Auth::user()['name']
+            'username' => $user['name']
         ]);
     }
 
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'judul' => 'required|string|max:255',
-            'title' => 'required|string|max:255',
-            'subtitle' => 'required|string|max:255',
-            'button' => 'required|string|max:255',
             'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'judul' => 'required|string|max:255',
+            'teks button' => 'required|string|max:255',
+            'title' => 'required|string|max:255',
+            'isi' => 'required|string|max:255',
         ]);
 
         if ($request->hasFile('image')) {
@@ -54,11 +56,11 @@ class OpsiController extends Controller
     public function update(Request $request, Opsi $opsi)
     {
         $validated = $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'judul' => 'required|string|max:255',
+            'teks button' => 'required|string|max:255',
             'title' => 'required|string|max:255',
-            'subtitle' => 'required|string|max:255',
-            'button' => 'required|string|max:255',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'isi' => 'required|string|max:255',
         ]);
 
         if ($request->hasFile('image')) {

@@ -12,12 +12,16 @@ class FooterController extends Controller
     public function index()
     {
         $footers = Footer::all();
-        return view('footer.index', compact('footers'));
+        $username = Auth::user()->name;
+        return view('footer.index', compact('footers', 'username'));
     }
 
     public function create()
     {
-        return view('footer.create');
+        $user = Auth::user();
+        return view('footer.create', [
+            'username' => Auth::user()['name']
+        ]);
     }
 
     public function store(Request $request)
@@ -25,8 +29,9 @@ class FooterController extends Controller
         $validated = $request->validate([
             'twitter' => 'nullable|string|max:255',
             'instagram' => 'nullable|string|max:255',
+            'facebook' => 'nullable|string|max:255',
             'tiktok' => 'nullable|string|max:255',
-            'phone' => 'nullable|string|max:20',
+            'kontak' => 'nullable|string|max:20',
             'alamat' => 'nullable|string',
         ]);
 
@@ -37,7 +42,11 @@ class FooterController extends Controller
 
     public function edit(Footer $footer)
     {
-        return view('footer.edit', compact('footer'));
+        $user = Auth::user();
+        return view('footer.edit', [
+            "footer" => $footer,
+            "username" => $user ['name']
+        ]);
     }
 
     public function update(Request $request, Footer $footer)
@@ -45,8 +54,9 @@ class FooterController extends Controller
         $validated = $request->validate([
             'twitter' => 'nullable|string|max:255',
             'instagram' => 'nullable|string|max:255',
+            'facebook' => 'nullable|string|max:255',
             'tiktok' => 'nullable|string|max:255',
-            'phone' => 'nullable|string|max:20',
+            'kontak' => 'nullable|string|max:20',
             'alamat' => 'nullable|string',
         ]);
 

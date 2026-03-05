@@ -16,16 +16,6 @@
                         @csrf
                         @method('PUT')
 
-                        {{-- Row Title --}}
-                        <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="judul">Judul</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="judul" name="judul" 
-                                    value="{{$opsi->judul}}" placeholder="Input Opsi Judul" />
-                                @error('judul') <div class="text-danger small">{{ $message }}</div> @enderror
-                            </div>
-                        </div>
-
                         {{-- Row Image  --}}
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="image">Opsi Image</label>
@@ -48,7 +38,25 @@
                              @endif
                         <input class="form-control" type="file" id="image" name="image"  onChange="previewImage()"/>
                       </div>
-                      {{-- Row Title --}}
+                      {{-- Row Judul --}}
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="judul">Judul</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="judul" name="judul" 
+                                    value="{{$opsi->judul}}" placeholder="Input Opsi Judul" />
+                                @error('judul') <div class="text-danger small">{{ $message }}</div> @enderror
+                            </div>
+                        </div>
+                        {{-- Row Teks Button --}}
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="teks_button">Teks Button</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="teks_button" name="teks_button" 
+                                    value="{{$opsi->teks_button}}" placeholder="Input Teks Button" />
+                                @error('teks_button') <div class="text-danger small">{{ $message }}</div> @enderror
+                            </div>
+                        </div>
+                        {{-- Row Title --}}
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="title">Title</label>
                             <div class="col-sm-10">
@@ -57,22 +65,13 @@
                                 @error('title') <div class="text-danger small">{{ $message }}</div> @enderror
                             </div>
                         </div>
-                        {{-- Row Subtitle --}}
+                        {{-- Row Isi --}}
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="subtitle">Subtitle</label>
+                            <label class="col-sm-2 col-form-label" for="isi">Isi</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="subtitle" name="subtitle" 
-                                    value="{{$opsi->subtitle}}" placeholder="Input Subtitle" />
-                                @error('subtitle') <div class="text-danger small">{{ $message }}</div> @enderror
-                            </div>
-                        </div>
-                        {{-- Row Button --}}
-                        <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="button">Button</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="button" name="button" 
-                                    value="{{$opsi->button}}" placeholder="Input Button" />
-                                @error('button') <div class="text-danger small">{{ $message }}</div> @enderror
+                                <input type="text" class="form-control" id="isi" name="isi" 
+                                    value="{{$opsi->isi}}" placeholder="Input Isi" />
+                                @error('isi') <div class="text-danger small">{{ $message }}</div> @enderror
                             </div>
                         </div>
                         <div class="justify-content-end">

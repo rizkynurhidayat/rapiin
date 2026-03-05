@@ -21,11 +21,11 @@
                   <table class="table table-hover">
                     <thead>
                       <tr>
-                        <th>Judul</th>
                         <th>Image</th>
+                        <th>Judul</th>
+                        <th>Teks Button</th>
                         <th>Title</th>
-                        <th>Subtitle</th>
-                        <th>Button</th>
+                        <th>Isi</th>
                         <th>Actions</th>
                       </tr>
                     </thead>
@@ -35,10 +35,11 @@
                         <tr>
                           <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $opsi->judul }}</strong></td>
                           <td>{{ $opsi->image }}</td>
+                          <td>{{ $opsi->judul }}</td>
+                          <td>{{ $opsi->teks_button }}</td>
                           <td>{{ $opsi->title }}</td>
-                          <td>{{ $opsi->subtitle }}</td>
-                          <td>{{ $opsi->button }}</td>
-                          
+                          <td>{{ $opsi->isi }}</td>
+                        </td>
                           <td>
                              @if(Storage::disk('public')->exists($opsi->image))
                             <div class="col-md-6 col-lg-4 mb-3">
@@ -51,6 +52,7 @@
                                 </p> -->
                                 <a href="javascript:void(0)" class="btn btn-outline-danger">Delete</a>
                              </div>
+                            </tr>
                         </div>
                     </div>
                     @else
