@@ -8,12 +8,9 @@ class Opsi extends Model
 {
     protected $fillable = [
         'judul',
-        'sub_judul',
-        'label',
-        'icon',
-        'kategori',
-        'harga',
+        'image',
+        'title',
+        'subtitle',
         'button',
-        'isi' 
     ];
 }
