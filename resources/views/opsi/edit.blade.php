@@ -1,111 +1,83 @@
 @extends('layouts.app')
 
 @section('content')
-
 <div class="container-xxl flex-grow-1 container-p-y">
-    <div class="row">
-        <div class="col-xxl">
-            <div class="card mb-4">
-                <div class="card-header d-flex align-items-center justify-content-between">
-                    <h5 class="mb-0">Edit Opsi</h5>
-                    <small class="text-muted float-end">Horizontal Layout</small>
-                </div>
-                <div class="card-body">
-                    <div class="card-body">
-                      <form action="{{route('opsi.update', $opsi)}}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        @method('PUT')
+  <div class="row">
+    <div class="col-xxl">
+      <div class="card mb-4">
+        <div class="card-header d-flex align-items-center justify-content-between">
+          <h5 class="mb-0">Edit Footer</h5>
+          <small class="text-muted float-end">Default label</small>
+        </div>
+        <div class="card-body">
+          <form action="{{ route('footer.update', $footer) }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
 
-                        {{-- Row Image  --}}
-                        <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="image">Opsi Image</label>
-                            <div class="col-sm-10">
-                                @if($opsi->image && Storage::disk('public')->exists($opsi->image))
-                      
-                              <div class="col-md-6 col-lg-4 mb-3">
-                                 <div class="card h-100">
-                                     <img class="card-img-top" id="img-preview" src="{{ asset('storage/' . $opsi->image) }}" alt="Card image cap" />
-                                     <div class="card-body">
-                                      {{-- <h5 class="card-title">Card title</h5> }}
-                                      {{-- <p class="card-text">
-                                        Some quick example text to build on the card title and make up the bulk of the card's content.
-                                      </p> --}}
-                                     {{-- <a href="javascript:void(0)" class="btn btn-outline-danger">Delete</a> --}}
-                                  </div>
-                                  </div>
-                                   @else
-                                   <img id="img-preview" style="display:none; max-width:200px; margin-bottom:10px;">
-                             @endif
-                        <input class="form-control" type="file" id="image" name="image"  onChange="previewImage()"/>
-                      </div>
-                      {{-- Row Judul --}}
-                        <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="judul">Judul</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="judul" name="judul" 
-                                    value="{{$opsi->judul}}" placeholder="Input Opsi Judul" />
-                                @error('judul') <div class="text-danger small">{{ $message }}</div> @enderror
-                            </div>
-                        </div>
-                        {{-- Row Teks Button --}}
-                        <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="teks_button">Teks Button</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="teks_button" name="teks_button" 
-                                    value="{{$opsi->teks_button}}" placeholder="Input Teks Button" />
-                                @error('teks_button') <div class="text-danger small">{{ $message }}</div> @enderror
-                            </div>
-                        </div>
-                        {{-- Row Title --}}
-                        <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="title">Title</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="title" name="title" 
-                                    value="{{$opsi->title}}" placeholder="Input Title" />
-                                @error('title') <div class="text-danger small">{{ $message }}</div> @enderror
-                            </div>
-                        </div>
-                        {{-- Row Isi --}}
-                        <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="isi">Isi</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="isi" name="isi" 
-                                    value="{{$opsi->isi}}" placeholder="Input Isi" />
-                                @error('isi') <div class="text-danger small">{{ $message }}</div> @enderror
-                            </div>
-                        </div>
-                        <div class="justify-content-end">
-                          <div class="col-sm-10 col-form-label">
-                            <button type="submit" class="btn btn-primary">Send</button>
-                            <a class="btn btn-secondary" href="{{ route('opsi.index') }}">Back</a>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-                <script>
-                    function previewImage {
-                        const image = document.querySelector('#image');
-                        const imgPreview = document.getElementById('#img-preview');
+            {{-- Social Media --}}
+            @foreach(['twitter','instagram','facebook','tiktok','kontak'] as $field)
+            <div class="row mb-3">
+              <label class="col-sm-2 col-form-label" for="{{ $field }}">{{ ucfirst($field) }}</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="{{ $field }}" name="{{ $field }}" value="{{ $footer->$field }}">
+              </div>
+            </div>
+            @endforeach
 
-                        if (image.files && image.files[0]) {
-                            const reader = new FileReader();
-                            reader.onload = function(e) {
-                                imgPreview.src = e.target.result;
-                                imgPreview.style.display = 'block';
-                            }
-                            reader.readAsDataURL(image.files[0]);
-                        }
-                        imgPreview.style.display = 'block';
+            {{-- Map --}}
+            <div class="row mb-3">
+              <label class="col-sm-2 col-form-label">Pilih Lokasi di Map</label>
+              <div class="col-sm-10">
+                <input type="hidden" id="latitude" name="latitude" value="{{ $footer->latitude }}">
+                <input type="hidden" id="longitude" name="longitude" value="{{ $footer->longitude }}">
+                <div id="map" style="height:400px;width:100%;border:1px solid #ccc;"></div>
+              </div>
+            </div>
 
-                        const of Reader = new FileReader();
-                        ofReader.readAsDataURL(image.files[0]);
+            {{-- Submit --}}
+            <div class="row justify-content-end">
+              <div class="col-sm-10">
+                <button type="submit" class="btn btn-primary">Update</button>
+                <a class="btn btn-secondary" href="{{ route('footer.index') }}">Back</a>
+              </div>
+            </div>
 
-                        ofReader.onload = function(oFREvent) {
-                            imgPreview.src = oFREvent.target.result;
-                        }
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+@endsection
 
-                    }
-                    </script>
- @endsection
+@section('footer')
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+<script>
+function initMap() {
+    const lat = {{ $footer->latitude ?? -6.8947 }};
+    const lng = {{ $footer->longitude ?? 109.1322 }};
+
+    const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 13,
+        center: { lat: lat, lng: lng }
+    });
+
+    const marker = new google.maps.Marker({
+        position: { lat: lat, lng: lng },
+        map: map,
+        draggable: true
+    });
+
+    marker.addListener('dragend', function(e) {
+        document.getElementById('latitude').value = e.latLng.lat();
+        document.getElementById('longitude').value = e.latLng.lng();
+    });
+
+    map.addListener('click', function(e) {
+        marker.setPosition(e.latLng);
+        document.getElementById('latitude').value = e.latLng.lat();
+        document.getElementById('longitude').value = e.latLng.lng();
+    });
+}
+</script>
+@endsection

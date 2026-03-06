@@ -45,7 +45,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/users/{user}', [AdminController::class, 'destroy'] ) -> name('users.destroy');
 
     //route opsi
-   Route::get('/Opsi', [OpsiController::class, 'view'])->name('opsi.index');
+   Route::get('/opsi', [OpsiController::class, 'view'])->name('opsi.index');
    Route::get('/opsi/create', [OpsiController::class, 'create'])->name('opsi.create');
    Route::post('/opsi/create', [OpsiController::class, 'store'])->name('opsi.store');
    Route::get('/opsi/edit/{opsi}', [OpsiController::class, 'edit'])->name('opsi.edit');
@@ -53,10 +53,13 @@ Route::middleware('auth')->group(function () {
    Route::delete('/opsi/{opsi}', [OpsiController::class, 'destroy'])->name('opsi.destroy');
 
     //route footer
-   Route::get('/footer', [FooterController::class, 'index'])->name('footer.index');
-   Route::get('/footer/create', [FooterController::class, 'create'])->name('footer.create');
-   Route::post('/footer/create', [FooterController::class, 'store'])->name('footer.store');
-   Route::get('/footer/edit/{footer}', [FooterController::class, 'edit'])->name('footer.edit');
-   Route::put('/footer/edit/{footer}', [FooterController::class, 'update'])->name('footer.update');
-   Route::delete('/footer/{footer}', [FooterController::class, 'destroy'])->name('footer.destroy');
+    Route::get('/footer', [FooterController::class, 'index'])->name('footer.index');
+    Route::get('/footer/create', [FooterController::class, 'create'])->name('footer.create');
+    Route::post('/footer/create', [FooterController::class, 'store'])->name('footer.store');
+    Route::get('/footer/edit/{footer}', [FooterController::class, 'edit'])->name('footer.edit');
+    Route::put('/footer/edit/{footer}', [FooterController::class, 'update'])->name('footer.update');
+    Route::delete('/footer/{footer}', [FooterController::class, 'destroy'])->name('footer.destroy');
+
+    // TAMBAHKAN INI: Route khusus untuk menangani perubahan data instan dari tabel index
+    Route::post('/footer/update-inline/{id}', [FooterController::class, 'updateInline'])->name('footer.updateInline');
 });

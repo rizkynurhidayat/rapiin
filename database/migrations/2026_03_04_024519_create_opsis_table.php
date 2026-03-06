@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('image');
             $table->string('judul');
-            $table->string('subtitle');
+            $table->string('teks_button');
             $table->string('title');
-            $table->string('button');
+            $table->text('isi');
             $table->timestamps();
         });
     }
