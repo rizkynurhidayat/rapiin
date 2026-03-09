@@ -77,6 +77,21 @@
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
             </li>
+
+            <li class="menu-item {{ request()->routeIs('admin.hero.*') ? 'active' : '' }}">
+                <a href="{{ route('admin.hero.edit') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-image-add"></i>
+                    <div data-i18n="Hero Section">Hero Section</div>
+                </a>
+            </li>
+
+            <li class="menu-item {{ request()->routeIs('admin.pricing.*') ? 'active' : '' }}">
+    <a href="{{ route('admin.pricing.index') }}" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-dollar-circle"></i>
+        <div>Pricing Section</div>
+    </a>
+</li>
+
             <!-- Users -->
             <li class="menu-item {{request()-> routeIs ('users.*') ? 'active' : ''}}">
               <a href="{{route ('users.index') }}" class="menu-link">

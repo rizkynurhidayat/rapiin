@@ -11,6 +11,7 @@
 </head>
 <body>
   
+
 <!-- Navbar -->
 <section id="Beranda">
 <nav class="nav">
@@ -48,14 +49,21 @@
 <!-- Hero -->
 <section class="hero">
   <div class="hero-text">
-    <h2 class="poppins-semibold">
-      Kasir digital simpel<br>
-      buat <span class="highlight">RAPIIN</span> bisnis kamu
-    </h2>
-    <button class="btn-hero">Uji Coba Gratis 7 Hari →</button>
+    @if($hero)
+      <h2 class="poppins-semibold">
+        {{ $hero->judul_awal }} 
+        <br>
+        <span class="highlight">{{ $hero->highlight_text }}</span> 
+        {{ $hero->judul_akhir }}
+      </h2>
+      
+     <button class="btn-hero">{{ $hero->button }}</button>
+    @endif
   </div>
-
-    <img src="{{ asset ('rapiin') }}/foto/Screenshot 2025-12-21 224549.png" alt="Aplikasi POS" class="hero-img">
+  
+  @if($hero && $hero->image)
+    <img src="{{ str_contains($hero->image, 'hero/') ? asset('storage/' . $hero->image) : asset($hero->image) }}" class="hero-img">
+  @endif
 </section>
 <!-- Hero END -->
 <!-- Fitur -->
@@ -130,55 +138,65 @@
 </section>
 <!-- Demo END -->
 <!-- Paket -->
-<section  id="Paket" class="pricing-section">
-  <div class="header-content">
-    <h1>Mulai <span class="cyan">RAPIIN</span> Bisnis Kamu Sekarang</h1>
-    <p>Tinggal pilih paketnya, kasir digital langsung siap dipakai.</p>
-  </div>
-
-  <div class="flex-wrapper">
+<section id="Paket" class="pricing-section">
     
-    <div class="card ">
-      <div class="tag-box"><h5>trial</h5></div>
-      <p class="card-desc">Coba RAPIIN tanpa biaya dan tanpa kartu kredit. Rasakan kemudahan mengelola transaksi, stok, dan laporan bisnis.</p>
-      <h2 class="card-price">Uji Coba <span class="card-unit">/ 7 hari</span></h2>
-      <button class="card-button">Mulai Sekarang</button>
-      <ul class="card-features">
-        <li>Kasir digital.</li>
-        <li>Simulasi pencatatan transaksi.</li>
-        <li>Contoh data stok.</li>
-        <li>Preview laporan penjualan.</li>
-      </ul>
-    </div>
+    {{-- 1. HEADER SECTION --}}
+    @if($pricings->isNotEmpty())
+        <div class="header-content">
+            <h1>
+                {{ $pricings->first()->section_judul_awal }} 
+                <span class="cyan">{{ $pricings->first()->section_highlight_text }}</span> 
+                {{ $pricings->first()->section_judul_akhir }}
+            </h1>
+            <p>{{ $pricings->first()->section_sub_judul }}</p>
+        </div>
+    @endif
 
-    <div class="card active">
-      <div class="crown">👑</div>
-      <div class="best-seller"><h4>Best Seller</h4></div>
-      <div class="tag-box"><h5>starter</h5></div>
-      <p class="card-desc">Untuk UMKM yang baru mulai digitalisasi kasir. Kelola transaksi harian dengan sistem yang rapi dan mudah.</p>
-      <h2 class="card-price">Rp100.000 <span class="card-unit">/ bulan</span></h2>
-      <button class="card-button">Mulai Sekarang</button>
-      <ul class="card-features">
-        <li>Kasir digital.</li>
-        <li>Laporan dasar.</li>
-        <li>Manajemen produk.</li>
-        <li>Support standar.</li>
-      </ul>
-    </div>
+    {{-- 2. WRAPPER UNTUK KARTU --}}
+    <div class="flex-wrapper">
+        
+        @foreach($pricings as $item)
+            <div class="card {{ $item->icon ? 'active' : '' }}">
+                
+                @if($item->icon)
+                    <div class="crown">
+                        @if(Str::contains($item->icon, ['/', '.']))
+                            <img src="{{ asset('storage/' . $item->icon) }}" width="40">
+                        @else
+                            {{ $item->icon }}
+                        @endif
+                    </div>
+                    <div class="best-seller">
+                        <h4>Best Seller</h4>
+                    </div>
+                @endif
 
-    <div class="card">
-      <div class="tag-box"><h5>bundling</h5></div>
-      <p class="card-desc">Paket lengkap siap langsung operasional. Solusi kasir digital dengan perangkat pendukung untuk UMKM.</p>
-      <h2 class="card-price">Rp400.000 <span class="card-unit">/ bulan</span></h2>
-      <button class="card-button3">Mulai Sekarang</button>
-      <ul class="card-features">
-        <li>Web App RAPIIN.</li>
-        <li>POS Printer.</li>
-        <li>Siap langsung digunakan.</li>
-      </ul>
-    </div>
+                <div class="tag-box">
+                    <h5>{{ strtoupper($item->nama_paket) }}</h5>
+                </div>
+                
+                {{-- HANYA BAGIAN INI YANG DITAMBAHKAN STYLE RATA KIRI --}}
+                <p class="card-desc" style="text-align: left; width: 100%;">
+                    {{ $item->deskripsi }}
+                </p>
+                
+                <h2 class="card-price">{{ $item->harga_lengkap }}</h2>
+                
+                <button class="card-button">{{ $item->teks_button }}</button>
+                
+                {{-- Bagian fitur kembali normal sesuai CSS aslimu --}}
+                <ul class="card-features">
+                    @foreach(explode(',', $item->fitur) as $feature)
+                        @if(trim($feature) !== "")
+                            <li>{{ trim($feature) }}</li>
+                        @endif
+                    @endforeach
+                </ul>
+                
+            </div>
+        @endforeach
 
-  </div>
+    </div>
 </section>
           
             
@@ -188,7 +206,7 @@
   <div class="footer-container">
     <div class="footer-content">
       <div class="footer-col brand-info">
-        <img src="{{ asset ('rapiin') }}/icon/image 23.png" alt="logo techade" class="footer-logo">
+        <img src="icon/image 23.png" alt="logo techade" class="footer-logo">
         <p>Solusi point of sale untuk mengelola operasional bisnis secara lebih mudah dan terstruktur.</p>
         <div class="social-icons">
           <a href="#"><img src="{{ asset ('rapiin') }}/icon/gg_facebook.png" alt="facebook"></a>
