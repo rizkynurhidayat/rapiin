@@ -5,17 +5,23 @@ namespace Database\Seeders;
 use App\Models\User;
 use App\Models\Hero;
 use App\Models\Pricing;
+use App\Models\Opsi;
+use App\Models\Footer;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
-class DatabaseSeeder extends Seeder {
-    public function run(): void {
+class DatabaseSeeder extends Seeder
+{
+    public function run(): void
+    {
+        // 1. User
         User::create([
             'name' => 'Admin Rapiin',
-            'email' => 'admin@rapiin.com',
+            'email' => 'admin@gmail.com',
             'password' => Hash::make('password123'),
         ]);
 
+        // 2. Hero
         Hero::create([
             'judul_awal' => 'Kasir digital simpel buat',
             'highlight_text' => 'RAPIIN',
@@ -25,7 +31,7 @@ class DatabaseSeeder extends Seeder {
             'image' => 'rapiin/foto/Screenshot.png',
         ]);
 
-        // Paket 1 (Trial + Header)
+        // 3. Pricing
         Pricing::create([
             'section_judul_awal' => 'Mulai',
             'section_highlight_text' => 'RAPIIN',
@@ -39,7 +45,6 @@ class DatabaseSeeder extends Seeder {
             'icon' => null,
         ]);
 
-        // Paket 2 (Best Seller)
         Pricing::create([
             'nama_paket' => 'starter',
             'deskripsi' => 'Cocok untuk UMKM berkembang.',
@@ -49,7 +54,6 @@ class DatabaseSeeder extends Seeder {
             'icon' => '👑',
         ]);
 
-        // Paket 3 (Bundling)
         Pricing::create([
             'nama_paket' => 'bundling',
             'deskripsi' => 'Lengkap dengan printer thermal.',
@@ -57,6 +61,18 @@ class DatabaseSeeder extends Seeder {
             'teks_button' => 'Beli Bundling',
             'fitur' => 'Semua Fitur Pro, Printer Bluetooth, Kertas Roll, Prioritas',
             'icon' => null,
+        ]);
+
+       
+        // 4. Footer
+        Footer::create([
+            'twitter' => 'https://twitter.com/rapiin',
+            'instagram' => 'https://instagram.com/rapiin',
+            'facebook' => 'https://facebook.com/rapiin',
+            'tiktok' => 'https://tiktok.com/@rapiin',
+            'email' => 'contact@techade.id',
+            'kontak' => '+6287812066967',
+            'alamat' => 'Palm Asri 2 Blk. G No.16, Pedagangan, Kecamatan Dukuhwaru, Kabupaten Tegal, Jawa Tengah, 52451 Indonesia',
         ]);
     }
 }

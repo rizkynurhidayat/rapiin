@@ -3,8 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
+
 use App\Http\Controllers\HeroController;
 use App\Http\Controllers\PricingController;
+
+
+use App\Http\Controllers\FooterController;
+
 
 // --- HALAMAN DEPAN ---
 Route::get('/', [PricingController::class, 'index'])->name('home');
@@ -29,6 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::put('/users/{user}', [AdminController::class, 'update'])->name('users.update');
     Route::delete('/users/{user}', [AdminController::class, 'destroy'])->name('users.destroy');
 
+
     // Management Hero & Pricing (Punya Anda - Menggunakan Prefix Admin)
     Route::name('admin.')->group(function () {
         // Hero
@@ -40,4 +46,23 @@ Route::middleware('auth')->group(function () {
         Route::get('/admin/pricing/{id}/edit', [PricingController::class, 'edit'])->name('pricing.edit');
         Route::put('/admin/pricing/{id}', [PricingController::class, 'update'])->name('pricing.update');
     });
+
+    //route logout
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/users', [AdminController::class, 'users'] ) -> name('users.index');
+    Route::get('/users/{user}/edit', [AdminController::class, 'edit'] ) -> name('users.edit');
+    Route::put('/users/{user}', [AdminController::class, 'update'] ) -> name('users.update');
+    Route::delete('/users/{user}', [AdminController::class, 'destroy'] ) -> name('users.destroy');
+
+    //route footer
+    Route::get('/footer', [FooterController::class, 'index'])->name('footer.index');
+    Route::get('/footer/create', [FooterController::class, 'create'])->name('footer.create');
+    Route::post('/footer/create', [FooterController::class, 'store'])->name('footer.store');
+    Route::get('/footer/edit/{footer}', [FooterController::class, 'edit'])->name('footer.edit');
+    Route::put('/footer/edit/{footer}', [FooterController::class, 'update'])->name('footer.update');
+    Route::delete('/footer/{footer}', [FooterController::class, 'destroy'])->name('footer.destroy');
+
+    // TAMBAHKAN INI: Route khusus untuk menangani perubahan data instan dari tabel index
+    Route::post('/footer/update-inline/{id}', [FooterController::class, 'updateInline'])->name('footer.updateInline');
+
 });

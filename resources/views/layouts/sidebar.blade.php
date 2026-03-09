@@ -103,6 +103,24 @@
             </li>
             <li class="menu-header small text-uppercase">
               <span class="menu-header-text">Pages</span>
+              <!-- Opsi -->
+            </li>
+            <li class="menu-item {{request()-> routeIs ('opsi.*') ? 'active' : ''}}">
+              <a href="{{route ('opsi.index') }}" class="menu-link">
+                <!-- <i class="menu-icon tf-icons bx bx-home-circle"></i> -->
+                <i class="bx bx-layout me-2"></i>
+                {{-- <i class="menu-icon tf-icons bx bx-layout"></i> --}}
+                <div data-i18n="Analytics">Opsi Data</div>
+              </a>
+            </li>
+            <!-- Footer -->
+            <li class="menu-item {{request()-> routeIs ('footer.*') ? 'active' : ''}}">
+              <a href="{{route ('footer.index') }}" class="menu-link">
+                <!-- <i class="menu-icon tf-icons bx bx-home-circle"></i> -->
+                <i class="bx bx-layout me-2"></i>
+                {{-- <i class="menu-icon tf-icons bx bx-layout"></i> --}}
+                <div data-i18n="Analytics">Footer Data</div>
+              </a>
             </li>
           </ul>
         </aside>
