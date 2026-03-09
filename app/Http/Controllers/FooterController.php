@@ -31,8 +31,9 @@ class FooterController extends Controller
             'instagram' => 'nullable|string|max:255',
             'facebook' => 'nullable|string|max:255',
             'tiktok' => 'nullable|string|max:255',
+            'email' => 'nullable|email|max:255',
             'kontak' => 'nullable|string|max:20',
-            'alamat' => 'nullable|string',
+            'alamat' => 'nullable|string|max:255',         
         ]);
 
         Footer::create($validated);
@@ -56,8 +57,9 @@ class FooterController extends Controller
             'instagram' => 'nullable|string|max:255',
             'facebook' => 'nullable|string|max:255',
             'tiktok' => 'nullable|string|max:255',
+            'email' => 'nullable|email|max:255',
             'kontak' => 'nullable|string|max:20',
-            'alamat' => 'nullable|string',
+            'alamat' => 'nullable|string|max:255',
         ]);
 
         $footer->update($validated);

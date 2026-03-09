@@ -23,8 +23,9 @@
                         <th>Instagram</th>
                         <th>Facebook</th>
                         <th>TikTok</th>
+                        <th>Email</th>
                         <th>Kontak</th>
-                        <th>Alamat & Lokasi</th> {{-- Digabung agar hemat tempat --}}
+                        <th>Alamat</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -35,6 +36,7 @@
                             <td>{{ $footer->instagram }}</td>
                             <td>{{ $footer->facebook }}</td>
                             <td>{{ $footer->tiktok }}</td>
+                            <td>{{ $footer->email }}</td>
                             <td>{{ $footer->kontak }}</td>
                             
                             {{-- Kolom Alamat yang lebih cerdas --}}

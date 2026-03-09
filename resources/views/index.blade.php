@@ -204,7 +204,6 @@
           <li>Servis</li>
           <li>Portofolio</li>
           <li>Keunggulan</li>
-          <li>FAQ</li>
         </ul>
       </div>
 
@@ -212,9 +211,17 @@
         <h3>Hubungi Kami</h3>
         <ul>
           <li><img src="{{ asset ('rapiin') }}/icon/mingcute_phone-fill.png" class="icon"> contact@techade.id</li>
+          <li>
+            <img src="{{ asset('rapiin') }}/icon/mingcute_phone-fill.png" class="icon"> 
+            <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $footer->kontak ?? '+6287812066967') }}" 
+               target="_blank" 
+               style="color: inherit; text-decoration: none;">
+               {{ $footer->kontak ?? '+6287812066967' }}
+            </a>
+          </li>
           <li class="address">
             <img src="{{ asset ('rapiin') }}/icon/mdi_address-marker (1).png" class="icon">
-            <span>Palm Asri 2 Blk. G No.16, Pedagangan, Kec. Dukuhwaru, Kab. Tegal, Jawa Tengah, 52451 Indonesia</span>
+            <span>{{ $footer->alamat ?? 'Palm Asri 2 Blk. G No.16, Pedagangan, Kec. Dukuhwaru, Kab. Tegal, Jawa Tengah, 52451 Indonesia' }}</span>
           </li>
         </ul>
       </div>
@@ -224,8 +231,6 @@
         <ul>
           <li>Tentang Kami</li>
           <li>Produk</li>
-          <li>Kerjasama</li>
-          <li>Karir</li>
         </ul>
       </div>
     </div>

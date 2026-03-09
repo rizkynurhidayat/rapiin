@@ -7,7 +7,7 @@
             <div class="card mb-4">
                 <div class="card-header d-flex align-items-center justify-content-between">
                     <h5 class="mb-0">Edit Footer</h5>
-                    <small class="text-muted float-end">Update Footer Information</small>
+                    <small class="text-muted float-end">Default label</small>
                 </div>
                 <div class="card-body">
                     <form action="{{ route('footer.update', $footer) }}" method="POST">
@@ -21,7 +21,8 @@
                                 'instagram' => 'Instagram',
                                 'facebook' => 'Facebook',
                                 'tiktok' => 'TikTok',
-                                'kontak' => 'Kontak'
+                                'email' => 'Email',
+                                'kontak' => 'Kontak',
                             ];
                         @endphp
 
@@ -55,9 +56,9 @@
                         <div class="row justify-content-end mt-4">
                             <div class="col-sm-10">
                                 <button type="submit" class="btn btn-primary me-2">
-                                    <i class="bx bx-save"></i> Simpan Perubahan
+                                    <i class="bx bx-save"></i> Send
                                 </button>
-                                <a class="btn btn-outline-secondary" href="{{ route('footer.index') }}">Batal</a>
+                                <a class="btn btn-outline-secondary" href="{{ route('footer.index') }}">Back</a>
                             </div>
                         </div>
                     </form>
