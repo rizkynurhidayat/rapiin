@@ -160,7 +160,7 @@
                 
                 @if($item->icon)
                     <div class="crown">
-                        @if(Str::contains($item->icon, ['/', '.']))
+                         @if(Str::contains($item->icon, ['/', '.']))
                             <img src="{{ asset('storage/' . $item->icon) }}" width="40">
                         @else
                             {{ $item->icon }}
