@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use App\Models\User;
 use App\Models\Hero;
 use App\Models\Pricing;
-use App\Models\Opsi;
 use App\Models\Footer;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
