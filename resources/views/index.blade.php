@@ -189,14 +189,15 @@
     <div class="footer-content">
       <div class="footer-col brand-info">
         <img src="{{ asset ('rapiin') }}/icon/image 23.png" alt="logo techade" class="footer-logo">
-        <p>Solusi point of sale untuk mengelola operasional bisnis secara lebih mudah dan terstruktur.</p>
+        <p style="font-size: 14px; line-height: 1.8; color: white; max-width: 400px;">
+            Solusi point of sale untuk mengelola operasional bisnis secara lebih mudah dan terstruktur.</p>
         <div class="social-icons">
           <img src="{{ asset('rapiin/icon/gg_facebook.png') }}" alt="facebook" onclick="window.location.href='https://www.facebook.com/profile.php?id=61556979945239&mibextid=LQQJ4d'" style="cursor: pointer;">
           <img src="{{ asset('rapiin/icon/mdi_instagram.png') }}" alt="instagram" onclick="window.location.href='https://www.instagram.com/techade.id/'" style="cursor: pointer;">
           <img src="{{ asset('rapiin/icon/Clip path group.png') }}" alt="x" onclick="window.location.href='https://x.com/techade_id'" style="cursor: pointer;">
-          <img src="{{ asset('rapiin/icon/linkedin.png') }}" alt="linkedin" onclick="window.location.href='https://www.linkedin.com/company/techade-id?originalSubdomain=id'" style="cursor: pointer;">
+          <img src="{{ asset('rapiin/icon/ri_linkedin-fill.png') }}" alt="linkedin" onclick="window.location.href='https://www.linkedin.com/company/techade-id?originalSubdomain=id'" style="cursor: pointer;">
           <img src="{{ asset('rapiin/icon/ic_baseline-whatsapp.png') }}" alt="whatsapp" onclick="window.location.href='https://wa.me/{{ preg_replace('/[^0-9]/', '', $footer->kontak ?? '6287812066967') }}'" style="cursor: pointer;">  
-          <img src="{{ asset('rapiin/icon/tiktok.png') }}" alt="tiktok" onclick="window.location.href='https://www.tiktok.com/@techade.id?_r=1&_t=ZS-94YoxxiMU4e'" style="cursor: pointer;">        
+          <img src="{{ asset('rapiin/icon/mingcute_tiktok-fill.png') }}" alt="tiktok" onclick="window.location.href='https://www.tiktok.com/@techade.id?_r=1&_t=ZS-94YoxxiMU4e'" style="cursor: pointer;">        
        </div>
     </div>
       <div class="footer-col">
@@ -213,7 +214,11 @@
       <div class="footer-col contact-col">
         <h3>Hubungi Kami</h3>
         <ul>
-          <li><img src="{{ asset ('rapiin') }}/icon/mingcute_phone-fill.png" class="icon"> contact@techade.id</li>
+          <ul>
+            <li style="cursor: pointer;" onclick="window.location.href='mailto:contact@techade.id'">
+               <img src="{{ asset('rapiin/icon/ic_round-email.png') }}" class="icon"> 
+               <span>contact@techade.id</span>
+           </li>  
           <li onclick="window.location.href='https://wa.me/{{ preg_replace('/[^0-9]/', '', $footer->kontak ?? '6287812066967') }}'" style="cursor: pointer;">
            <img src="{{ asset('rapiin/icon/mingcute_phone-fill.png') }}" class="icon"> 
            <span>{{ $footer->kontak ?? '+6287812066967' }}</span>
