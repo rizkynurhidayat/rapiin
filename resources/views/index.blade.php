@@ -184,7 +184,7 @@
             
 <!-- Paket END -->
 <!-- Footer -->
-        <footer id="footer">
+<footer id="footer">
   <div class="footer-container">
     <div class="footer-content">
       <div class="footer-col brand-info">
@@ -192,45 +192,52 @@
         <p>Solusi point of sale untuk mengelola operasional bisnis secara lebih mudah dan terstruktur.</p>
         <div class="social-icons">
           <a href="#"><img src="{{ asset ('rapiin') }}/icon/gg_facebook.png" alt="facebook"></a>
-          <a href="#"><img src="{{ asset ('rapiin') }}/icon/mdi_instagram.png" alt="instagram"></a>
-          <a href="#"><img src="{{ asset ('rapiin') }}/icon/Clip path group.png" alt="x"></a>
-          <a href="#"><img src="{{ asset ('rapiin') }}/icon/ic_baseline-whatsapp.png" alt="whatsapp"></a>
-        </div>
-      </div>
-
+          <img src="{{ asset('rapiin') }}/icon/mdi_instagram.png" onclick="window.location.href='https://www.instagram.com/techade.id/'" style="cursor: pointer;">
+          <img src="{{ asset('rapiin') }}/icon/Clip path group.png" alt="x" onclick="window.location.href='https://x.com/techade_id'" style="cursor: pointer;">
+          <img src="{{ asset('rapiin/icon/mdi_linkedin.png') }}" alt="linkedin" onclick="window.location.href='https://www.linkedin.com/company/techade-id?originalSubdomain=id'" style="cursor: pointer;">
+          <img src="{{ asset('rapiin/icon/ic_baseline-whatsapp.png') }}" alt="whatsapp" onclick="window.location.href='https://wa.me/{{ preg_replace('/[^0-9]/', '', $footer->kontak ?? '6287812066967') }}'" style="cursor: pointer;">          
+       </div>
+    </div>
       <div class="footer-col">
         <h3>Navigasi</h3>
         <ul>
-          <li>Servis</li>
-          <li>Portofolio</li>
-          <li>Keunggulan</li>
+          <li onclick="window.location.href='https://techade.id/#services'" style="cursor: pointer;">
+           Servis</li>
+          <li onclick="window.location.href='https://techade.id/#portfolio'" style="cursor: pointer;">
+           Portofolio</li>
+          <li onclick="window.location.href='https://techade.id/#keunggulan'" style="cursor: pointer;">
+          Keunggulan</li>
         </ul>
       </div>
-
       <div class="footer-col contact-col">
         <h3>Hubungi Kami</h3>
         <ul>
           <li><img src="{{ asset ('rapiin') }}/icon/mingcute_phone-fill.png" class="icon"> contact@techade.id</li>
-          <li>
-            <img src="{{ asset('rapiin') }}/icon/mingcute_phone-fill.png" class="icon"> 
-            <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $footer->kontak ?? '+6287812066967') }}" 
-               target="_blank" 
-               style="color: inherit; text-decoration: none;">
-               {{ $footer->kontak ?? '+6287812066967' }}
-            </a>
-          </li>
-          <li class="address">
-            <img src="{{ asset ('rapiin') }}/icon/mdi_address-marker (1).png" class="icon">
-            <span>{{ $footer->alamat ?? 'Palm Asri 2 Blk. G No.16, Pedagangan, Kec. Dukuhwaru, Kab. Tegal, Jawa Tengah, 52451 Indonesia' }}</span>
-          </li>
+          <li onclick="window.location.href='https://wa.me/{{ preg_replace('/[^0-9]/', '', $footer->kontak ?? '6287812066967') }}'" style="cursor: pointer;">
+           <img src="{{ asset('rapiin/icon/mingcute_phone-fill.png') }}" class="icon"> 
+           <span>{{ $footer->kontak ?? '+6287812066967' }}</span>
+         </li>
+           <li class="address" 
+            @php
+            $address = $footer->alamat ?? 'Palm Asri 2 Blk. G No.16, Pedagangan, Kec. Dukuhwaru, Kab. Tegal, Jawa Tengah, 52451 Indonesia';
+            @endphp
+            onclick="window.location.href='https://www.google.com/maps/search/{{ urlencode($address) }}'" 
+            style="cursor: pointer;">
+           <img src="{{ asset('rapiin/icon/mdi_address-marker (1).png') }}" class="icon">
+          <span>{{ $address }}</span>
+         </li>
+           </a>
+         </li>
         </ul>
       </div>
-
       <div class="footer-col">
         <h3>Perusahaan</h3>
         <ul>
-          <li>Tentang Kami</li>
-          <li>Produk</li>
+           <li onclick="window.location.href='https://techade.id/about'" style="cursor: pointer;">
+           Tentang Kami</li>
+           <li onclick="window.location.href='https://techade.id/products'" style="cursor: pointer;">
+            Produk
+           </li>
         </ul>
       </div>
     </div>

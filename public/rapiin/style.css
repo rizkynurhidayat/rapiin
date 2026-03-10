@@ -918,3 +918,40 @@ html {
   font-size: 12px;
   color: #fffdfd;
 }
+/* Styling khusus untuk link alamat */
+.address-link {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+
+/* Efek Hover: Cyan Glow & Glassmorphism */
+.address-link:hover {
+    background: rgba(0, 255, 255, 0.1); /* Efek kaca transparan biru */
+    color: #00ffff; /* Warna Cyan Glow */
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    transform: translateY(-2px); /* Sedikit naik saat disentuh */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.address-link span {
+    font-family: 'Poppins', sans-serif; /* Menggunakan font pilihan Anda */
+    transition: border-bottom 0.3s ease;
+}
+
+.address-link:hover span {
+    border-bottom: 1.5px solid #00ffff;
+}
+.address a {
+    cursor: pointer;
+    display: inline-block;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.address a:active {
+    opacity: 0.6; /* Memberikan efek 'tekan' saat diklik */
+}
