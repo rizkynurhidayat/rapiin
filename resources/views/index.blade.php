@@ -249,9 +249,9 @@
             <img src="{{ asset('rapiin/icon/mingcute_phone-fill.png') }}" class="icon"> 
             <span>{{ $footer->kontak ?? '+6287812066967' }}</span>
           </li>
-          <li class="address" onclick="window.location.href='https://www.google.com/maps/search/?api=1&query={{ urlencode($footer->alamat ?? 'Palm Asri 2 Blk. G No.16, Pedagangan, Kec. Dukuhwaru, Kab. Tegal, Jawa Tengah, 52451 Indonesia') }}'" style="cursor: pointer;">
+          <li class="address" onclick="window.location.href='https://www.google.com/maps/search/?api=1&query={{ urlencode($footer->alamat ?? 'Palm Asri 2 Blk. G No.16, Mejen, Pedagangan, Kec. Dukuhwaru, Kabupaten Tegal, Jawa Tengah 52451') }}'" style="cursor: pointer;">
             <img src="{{ asset('rapiin/icon/mdi_address-marker (1).png') }}" class="icon">
-            <span>{{ $footer->alamat ?? 'Palm Asri 2 Blk. G No.16, Pedagangan, Kec. Dukuhwaru, Kab. Tegal, Jawa Tengah, 52451 Indonesia' }}</span>
+            <span>{{ $footer->alamat ?? 'Palm Asri 2 Blk. G No.16, Mejen, Pedagangan, Kec. Dukuhwaru, Kabupaten Tegal, Jawa Tengah 52451' }}</span>
           </li>
         </ul>
       </div>
