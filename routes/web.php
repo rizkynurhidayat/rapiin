@@ -44,13 +44,6 @@ Route::middleware('auth')->group(function () {
     Route::put('/users/{user}', [AdminController::class, 'update'] ) -> name('users.update');
     Route::delete('/users/{user}', [AdminController::class, 'destroy'] ) -> name('users.destroy');
 
-    //route opsi
-   Route::get('/opsi', [OpsiController::class, 'view'])->name('opsi.index');
-   Route::get('/opsi/create', [OpsiController::class, 'create'])->name('opsi.create');
-   Route::post('/opsi/create', [OpsiController::class, 'store'])->name('opsi.store');
-   Route::get('/opsi/edit/{opsi}', [OpsiController::class, 'edit'])->name('opsi.edit');
-   Route::put('/opsi/edit/{opsi}', [OpsiController::class, 'update'])->name('opsi.update');
-   Route::delete('/opsi/{opsi}', [OpsiController::class, 'destroy'])->name('opsi.destroy');
 
     //route footer
     Route::get('/footer', [FooterController::class, 'index'])->name('footer.index');
