@@ -211,8 +211,6 @@
         <p style="font-size: 14px; line-height: 1.8; color: white; max-width: 400px;">
           Solusi point of sale untuk mengelola operasional bisnis secara lebih mudah dan terstruktur.
         </p>
-        <img src="icon/image 23.png" alt="logo techade" class="footer-logo">
-        <p>Solusi point of sale untuk mengelola operasional bisnis secara lebih mudah dan terstruktur.</p>
         <div class="social-icons">
           <img src="{{ asset('rapiin/icon/gg_facebook.png') }}" alt="facebook" 
                onclick="window.location.href='{{ $footer->facebook ?? 'https://facebook.com' }}'" style="cursor: pointer;">
