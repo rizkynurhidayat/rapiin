@@ -28,34 +28,34 @@
                         <th>TikTok</th>
                         <th>Email</th>
                         <th>Kontak</th>
-                        <th>Alamat</th>
-                        <th>Actions</th>
+                        <th>Alamat & Lokasi</th> <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($footers as $footer)
                         <tr>
-                            <td>{{ $footer->facebook ?? '-' }}</td>
-                            <td>{{ $footer->instagram ?? '-' }}</td>
-                            <td>{{ $footer->twitter ?? '-' }}</td>
-                            <td>{{ $footer->linkedin ?? '-' }}</td>
-                            <td>{{ $footer->whatsapp ?? '-' }}</td>
-                            <td>{{ $footer->tiktok ?? '-' }}</td>
-                            <td>{{ $footer->email ?? '-' }}</td>
-                            <td>{{ $footer->kontak ?? '-' }}</td>
+                            <td>{{ $footer->facebook }}</td>
+                            <td>{{ $footer->instagram }}</td>
+                            <td>{{ $footer->twitter }}</td>
+                            <td>{{ $footer->linkedin }}</td>
+                            <td>{{ $footer->whatsapp }}</td>
+                            <td>{{ $footer->tiktok }}</td>
+                            <td>{{ $footer->email }}</td>
+                            <td>{{ $footer->kontak }}</td>
+                            
                             <td>
-                                <div style="max-width: 200px; white-space: normal;">
+                                <div style="max-width: 250px; white-space: normal; margin-bottom: 10px;">
                                     {{ $footer->alamat ?? '-' }}
                                 </div>
                                 
-                                <!-- Google Maps per row -->
-                                <div id="map-{{ $footer->id }}" style="width: 100%; height: 200px; margin-top: 5px;"></div>
+                                <div id="map-{{ $footer->id }}" style="width: 250px; height: 150px; border-radius: 8px; border: 1px solid #ddd;"></div>
 
                                 <a href="https://www.google.com/maps?q={{ $footer->latitude }},{{ $footer->longitude }}" 
                                    target="_blank" class="btn btn-sm btn-outline-danger mt-2">
                                     <i class="bx bx-map-pin"></i> Lihat Google Maps
                                 </a>
                             </td>
+
                             <td>
                                 <div class="dropdown">
                                     <button class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
@@ -68,7 +68,7 @@
                                         <form action="{{ route('footer.destroy', $footer) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus?')">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="dropdown-item">
+                                            <button type="submit" class="dropdown-item text-danger">
                                                 <i class="bx bx-trash me-1"></i> Delete
                                             </button>
                                         </form>
@@ -83,24 +83,24 @@
     </div>
 </div>
 
-<!-- Library Google Maps -->
-<script src="https://maps.googleapis.com/maps/api/js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     @foreach($footers as $footer)
-        var map{{ $footer->id }} = new google.maps.Map(document.getElementById("map-{{ $footer->id }}"), {
-            center: { 
-                lat: {{ $footer->latitude ?? -6.203035 }}, 
-                lng: {{ $footer->longitude ?? 106.846739 }} 
-            },
-            zoom: 15
-        });
+        // Pastikan latitude & longitude ada nilainya
+        var lat{{ $footer->id }} = {{ $footer->latitude ?? -6.9147 }}; 
+        var lng{{ $footer->id }} = {{ $footer->longitude ?? 109.1307 }};
+
+        var mapOptions{{ $footer->id }} = {
+            center: { lat: lat{{ $footer->id }}, lng: lng{{ $footer->id }} },
+            zoom: 15,
+            disableDefaultUI: true, // Biar tampilan map mini lebih bersih
+        };
+
+        var map{{ $footer->id }} = new google.maps.Map(document.getElementById("map-{{ $footer->id }}"), mapOptions{{ $footer->id }});
 
         var marker{{ $footer->id }} = new google.maps.Marker({
-            position: { 
-                lat: {{ $footer->latitude ?? -6.203035 }}, 
-                lng: {{ $footer->longitude ?? 106.846739 }} 
-            },
+            position: { lat: lat{{ $footer->id }}, lng: lng{{ $footer->id }} },
             map: map{{ $footer->id }},
             title: "{{ $footer->alamat }}"
         });

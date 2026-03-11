@@ -51,11 +51,11 @@
                             $lat = is_numeric(old('latitude', $footer->latitude ?? null)) ? old('latitude', $footer->latitude) : -6.976366;
                             $lng = is_numeric(old('longitude', $footer->longitude ?? null)) ? old('longitude', $footer->longitude) : 109.120838;
                         @endphp
-                        <input type="hidden" name="latitude" id="latitude" value="{{ $lat }}">
-                        <input type="hidden" name="longitude" id="longitude" value="{{ $lng }}">
+                           <input type="hidden" name="latitude" id="latitude" value="{{ $lat }}">
+                           <input type="hidden" name="longitude" id="longitude" value="{{ $lng }}">
 
-                        <div id="map" style="width: 100%; height: 400px; border-radius: 8px; border: 1px solid #ddd;"></div>
-                        <small class="text-muted mt-2 d-block">
+                           <div id="map" style="width: 100%; height: 400px; border-radius: 8px;"></div>
+                           <small class="text-muted mt-2 d-block">
                             Klik peta atau geser marker untuk menentukan lokasi presisi.
                         </small>
                     </div>

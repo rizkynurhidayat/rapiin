@@ -6,7 +6,7 @@
         <div class="col-xxl">
             <div class="card mb-4">
                 <div class="card-header d-flex align-items-center justify-content-between">
-                    <h5 class="mb-0">Tambah Footer & Lokasi</h5>
+                    <h5 class="mb-0">Add Footer</h5>
                     <small class="text-muted float-end">Data RAPIIN POS</small>
                 </div>
                 <div class="card-body">
@@ -38,12 +38,12 @@
                                 <textarea class="form-control mb-3 @error('alamat') is-invalid @enderror" 
                                           name="alamat" id="alamat" rows="3" 
                                           placeholder="Input Alamat Lengkap">{{ old('alamat', 'Palm Asri 2 Blk. G No.16, Pedagangan, Kec. Dukuhwaru, Kab. Tegal, Jawa Tengah, 52451 Indonesia') }}</textarea>
-{{-- 
+
                                 <input type="hidden" name="latitude" id="latitude" value="{{ old('latitude', '-6.976366') }}">
                                 <input type="hidden" name="longitude" id="longitude" value="{{ old('longitude', '109.120838') }}">
 
                                 <div id="map" style="width: 100%; height: 400px; border-radius: 8px; border: 1px solid #ddd;"></div>
-                            </div> --}}
+                            </div>
                         </div>
 
                         <div class="row justify-content-end mt-4">
