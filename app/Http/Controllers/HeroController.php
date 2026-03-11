@@ -5,46 +5,50 @@ namespace App\Http\Controllers;
 use App\Models\Hero;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Auth;
 
 class HeroController extends Controller
 {
+    /**
+     * Menampilkan Form Edit Hero
+     */
     public function edit()
     {
-        // Ambil data user login agar Navbar tidak error
-        $username = Auth::user()->name;
-
-        // Ambil data hero ID 1
+        // Mencari data Hero dengan ID 1. Jika tidak ada, buat default.
         $hero = Hero::firstOrCreate(['id' => 1], [
             'judul_awal'     => 'Kasir digital simpel buat',
             'highlight_text' => 'RAPIIN',
             'judul_akhir'    => 'bisnis kamu',
-            'button'         => 'Mulai Sekarang', // Kita pakai 'button' saja
+            'button'         => 'Tell Me More',
             'image'          => 'hero/default.png'
         ]);
 
-        return view('admin.hero.edit', compact('hero', 'username'));
+        return view('admin.hero.edit', compact('hero'));
     }
 
+    /**
+     * Update Data Hero ke Database
+     */
     public function update(Request $request)
     {
-        $hero = Hero::firstOrCreate(['id' => 1]);
+        $hero = Hero::findOrFail(1);
 
         $request->validate([
-            'judul_awal'     => 'required',
-            'highlight_text' => 'required',
-            'judul_akhir'    => 'required',
-            'button'         => 'required', // Deskripsi sudah tidak ada, ganti jadi button
+            'judul_awal'     => 'required|string|max:255',
+            'highlight_text' => 'required|string|max:255',
+            'judul_akhir'    => 'required|string|max:255',
+            'button'         => 'required|string|max:100',
             'image'          => 'nullable|image|mimes:jpg,jpeg,png|max:2048'
         ]);
 
-        // Ambil data yang hanya ada di database
         $data = $request->only(['judul_awal', 'highlight_text', 'judul_akhir', 'button']);
 
         if ($request->hasFile('image')) {
-            if ($hero->image && $hero->image !== 'hero/default.png' && Storage::disk('public')->exists($hero->image)) {
+            // Hapus gambar lama
+            if ($hero->image && Storage::disk('public')->exists($hero->image)) {
                 Storage::disk('public')->delete($hero->image);
             }
+           
+            // Simpan gambar baru
             $data['image'] = $request->file('image')->store('hero', 'public');
         }
 

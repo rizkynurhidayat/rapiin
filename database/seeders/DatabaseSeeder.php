@@ -22,12 +22,11 @@ class DatabaseSeeder extends Seeder
 
         // 2. Hero
         Hero::create([
-            'judul_awal' => 'Kasir digital simpel buat',
-            'highlight_text' => 'RAPIIN',
-            'judul_akhir' => 'bisnis kamu',
-            'deskripsi' => 'Uji Coba Gratis 7 Hari →',
-            'button' => 'Mulai Sekarang',
-            'image' => 'rapiin/foto/Screenshot.png',
+           'judul_awal'     => 'Kasir digital simpel buat',
+           'highlight_text' => 'RAPIIN',
+           'judul_akhir'    => 'bisnis kamu',
+           'button'         => 'Mulai Sekarang',
+           'image'          => 'hero/default.png',
         ]);
 
         // 3. Pricing

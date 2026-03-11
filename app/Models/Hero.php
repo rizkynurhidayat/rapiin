@@ -10,7 +10,7 @@ class Hero extends Model
         'judul_awal', 
         'highlight_text', 
         'judul_akhir', 
-        'button', // Pastikan ini 'button', bukan 'deskripsi'
+        'button',
         'image'
     ];
 }

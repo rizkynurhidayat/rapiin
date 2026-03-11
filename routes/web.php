@@ -3,11 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
-
 use App\Http\Controllers\HeroController;
 use App\Http\Controllers\PricingController;
-
-
 use App\Http\Controllers\FooterController;
 
 
@@ -38,8 +35,8 @@ Route::middleware('auth')->group(function () {
     // Management Hero & Pricing (Punya Anda - Menggunakan Prefix Admin)
     Route::name('admin.')->group(function () {
         // Hero
-        Route::get('/admin/hero/edit', [HeroController::class, 'edit'])->name('hero.edit');
-        Route::put('/admin/hero/update', [HeroController::class, 'update'])->name('hero.update');
+       Route::get('/admin/hero/edit', [HeroController::class, 'edit'])->name('hero.edit');
+       Route::put('/admin/hero/update', [HeroController::class, 'update'])->name('hero.update');
 
         // Pricing
         Route::get('/admin/pricing', [PricingController::class, 'adminIndex'])->name('pricing.index');

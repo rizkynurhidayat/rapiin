@@ -13,15 +13,16 @@ return new class extends Migration
     {
         Schema::create('heroes', function (Blueprint $table) {
             $table->id();
-            // Bagian Judul yang dipecah agar admin mudah edit kata "RAPIIN"
-            $table->string('judul_awal');      // Contoh: "Kasir digital simpel buat"
-            $table->string('highlight_text');  // Contoh: "RAPIIN"
-            $table->string('judul_akhir');     // Contoh: "bisnis kamu"
+            // Bagian Judul
+            $table->string('judul_awal');      
+            $table->string('highlight_text');  
+            $table->string('judul_akhir');     
             
-            // Kolom pendukung lainnya
-            $table->string('button_text');       // Teks kecil di bawah judul atau teks di tombol
-            // $table->string('button');          // Label tombol (misal: "Mulai Sekarang")
-            $table->string('image');           // Path/nama file gambar
+            // Kolom pendukung
+            $table->string('button');       
+            
+            // Tambahkan nullable() di sini
+            $table->string('image')->nullable(); 
             
             $table->timestamps();
         });
