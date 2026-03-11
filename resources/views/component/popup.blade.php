@@ -47,7 +47,7 @@
                     </ul>
                 </div>
 
-                <a href="#" class="btn">Mulai Sekarang</a>
+                <a href="#" class="btn" onclick="mulaiSekarang()">Mulai Sekarang</a>
                 <p class="text-popup">Nikmati seluruh benefit setelah mengaktifkan langganan</p>
 
             </div>
@@ -63,19 +63,20 @@
 <script>
     const pricings = @json($pricings);
     const popup = document.getElementById("popupPricing")
-    function openPopup(){
+    function openPopup(index = 0){
         popup.classList.add("active")
         document.body.classList.add("no-scroll")
-        gantiPaket(0)
+        gantiPaket(index)
     }
-
+    
     function closePopup(){
         popup.classList.remove("active")
         document.body.classList.remove("no-scroll")
     }
-
+    
     function gantiPaket(index){
         const paket = pricings[index]
+        paketDipilih = paket.harga_lengkap
         const benefitList = document.getElementById("benefit-list")
         benefitList.innerHTML = ""
         const fitur = paket.fitur.split(",")
@@ -90,6 +91,15 @@
         buttons[index].classList.add("active")
 
     }
+
+    function mulaiSekarang(){
+    let paketDipilih = ""
+    let nomor = "6245678909876" //no telepon 
+    let pesan = "Hai saya ingin berlangganan paket " + paketDipilih
+    let url = "https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan)
+    window.open(url, "_blank")
+    }
+
     window.onload = function(){
         gantiPaket(0)
     }

@@ -158,7 +158,8 @@
     {{-- 2. WRAPPER UNTUK KARTU --}}
     <div class="flex-wrapper">
         
-        @foreach($pricings as $item)
+        {{-- @foreach($pricings as $item) --}}
+        @foreach($pricings as $index => $item)
             <div class="card {{ $item->icon ? 'active' : '' }}">
                 
                 @if($item->icon)
@@ -185,7 +186,7 @@
                 
                 <h2 class="card-price">{{ $item->harga_lengkap }}</h2>
                 
-                <button class="card-button" onclick="openPopup()">{{ $item->teks_button }}</button>
+                <button class="card-button" onclick="openPopup({{ $index }})">{{ $item->teks_button }}</button>
                 
                 {{-- Bagian fitur kembali normal sesuai CSS aslimu --}}
                 <ul class="card-features">
