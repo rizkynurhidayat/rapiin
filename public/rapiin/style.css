@@ -969,12 +969,13 @@ html {
     cursor:pointer;
     z-index:999;
 }
-body.no-scroll,
-html.no-scroll{
-  overflow: hidden;
-  height: 100%;
-  
+
+/* html{
+  overflow-y: scroll;
 }
+body.no-scroll{
+  overflow: hidden;
+} */
 /* .opsi-container{
     display:flex;
     gap:40px;
@@ -1077,4 +1078,21 @@ html.no-scroll{
   font-size: smaller;
   text-align: center;
   margin-top: 20px;
+}
+.btn-opsi.best{
+  border:2px solid #FFD700;
+  position:relative;
+}
+.badge-best{
+  position:absolute;
+  top:-8px;
+  right:10px;
+  background:#00F0FF;
+  background-image: linear-gradient(180deg, #2b72ba, #54ddff);
+  color:white;
+  font-size:10px;
+  padding:2px 8px;
+  border-radius:10px;
+  font-weight:600;
+  text-shadow: 3px 6px 9px #000000;
 }

@@ -185,7 +185,7 @@
                 
                 <h2 class="card-price">{{ $item->harga_lengkap }}</h2>
                 
-                <button class="card-button">{{ $item->teks_button }}</button>
+                <button class="card-button" onclick="openPopup()">{{ $item->teks_button }}</button>
                 
                 {{-- Bagian fitur kembali normal sesuai CSS aslimu --}}
                 <ul class="card-features">

@@ -16,9 +16,23 @@
                     bisnis kamu
                 </h1>
 
-                <div class="package-selector">
+                {{-- <div class="package-selector">
                     @foreach($pricings as $index => $pricing)
                         <button class="btn-opsi" onclick="gantiPaket({{ $index }})">
+                            {{ $pricing->harga_lengkap }}
+                        </button>
+                    @endforeach
+                </div> --}}
+                <div class="package-selector">
+                    @foreach($pricings as $index => $pricing)
+                        <button 
+                            class="btn-opsi {{ $index == 1 ? 'best' : '' }}" 
+                            onclick="gantiPaket({{ $index }})"
+                        >
+                            @if($index == 1)
+                                <span class="badge-best">Best</span>
+                            @endif
+
                             {{ $pricing->harga_lengkap }}
                         </button>
                     @endforeach
@@ -51,15 +65,15 @@
     const popup = document.getElementById("popupPricing")
     function openPopup(){
         popup.classList.add("active")
-        document.body.classList.remove("no-scroll")
-        document.documentElement.classList.add("no-scroll")
+        document.body.classList.add("no-scroll")
         gantiPaket(0)
     }
+
     function closePopup(){
         popup.classList.remove("active")
         document.body.classList.remove("no-scroll")
-        document.documentElement.classList.remove("no-scroll")
     }
+
     function gantiPaket(index){
         const paket = pricings[index]
         const benefitList = document.getElementById("benefit-list")
