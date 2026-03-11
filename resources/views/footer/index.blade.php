@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container-xxl flex-grow-1 container-p-y">
+
     @if (session('success'))
         <div class="alert alert-success alert-dismissible">
             {{ session('success') }}
@@ -19,9 +20,11 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>Twitter</th>
-                        <th>Instagram</th>
                         <th>Facebook</th>
+                        <th>Instagram</th>
+                        <th>Twitter</th>
+                        <th>LinkedIn</th>
+                        <th>WhatsApp</th>
                         <th>TikTok</th>
                         <th>Email</th>
                         <th>Kontak</th>
@@ -32,25 +35,27 @@
                 <tbody>
                     @foreach($footers as $footer)
                         <tr>
-                            <td>{{ $footer->twitter }}</td>
-                            <td>{{ $footer->instagram }}</td>
-                            <td>{{ $footer->facebook }}</td>
-                            <td>{{ $footer->tiktok }}</td>
-                            <td>{{ $footer->email }}</td>
-                            <td>{{ $footer->kontak }}</td>
-                            
-                            {{-- Kolom Alamat yang lebih cerdas --}}
+                            <td>{{ $footer->facebook ?? '-' }}</td>
+                            <td>{{ $footer->instagram ?? '-' }}</td>
+                            <td>{{ $footer->twitter ?? '-' }}</td>
+                            <td>{{ $footer->linkedin ?? '-' }}</td>
+                            <td>{{ $footer->whatsapp ?? '-' }}</td>
+                            <td>{{ $footer->tiktok ?? '-' }}</td>
+                            <td>{{ $footer->email ?? '-' }}</td>
+                            <td>{{ $footer->kontak ?? '-' }}</td>
                             <td>
                                 <div style="max-width: 200px; white-space: normal;">
-                                    <strong>Alamat:</strong> {{ $footer->alamat }}
+                                    {{ $footer->alamat ?? '-' }}
                                 </div>
+                                
+                                <!-- Google Maps per row -->
+                                <div id="map-{{ $footer->id }}" style="width: 100%; height: 200px; margin-top: 5px;"></div>
+
                                 <a href="https://www.google.com/maps?q={{ $footer->latitude }},{{ $footer->longitude }}" 
-                                   target="_blank" 
-                                   class="btn btn-sm btn-outline-danger mt-2">
+                                   target="_blank" class="btn btn-sm btn-outline-danger mt-2">
                                     <i class="bx bx-map-pin"></i> Lihat Google Maps
                                 </a>
                             </td>
-
                             <td>
                                 <div class="dropdown">
                                     <button class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
@@ -77,4 +82,29 @@
         </div>
     </div>
 </div>
+
+<!-- Library Google Maps -->
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    @foreach($footers as $footer)
+        var map{{ $footer->id }} = new google.maps.Map(document.getElementById("map-{{ $footer->id }}"), {
+            center: { 
+                lat: {{ $footer->latitude ?? -6.203035 }}, 
+                lng: {{ $footer->longitude ?? 106.846739 }} 
+            },
+            zoom: 15
+        });
+
+        var marker{{ $footer->id }} = new google.maps.Marker({
+            position: { 
+                lat: {{ $footer->latitude ?? -6.203035 }}, 
+                lng: {{ $footer->longitude ?? 106.846739 }} 
+            },
+            map: map{{ $footer->id }},
+            title: "{{ $footer->alamat }}"
+        });
+    @endforeach
+});
+</script>
 @endsection

@@ -10,12 +10,11 @@
                     <small class="text-muted float-end">Data RAPIIN POS</small>
                 </div>
                 <div class="card-body">
-                    {{-- Form Start --}}
                     <form action="{{ route('footer.store') }}" method="POST">
                         @csrf
 
-                        {{-- Input Sosial Media & Kontak --}}
-                        @foreach(['twitter', 'instagram', 'facebook', 'tiktok', 'email', 'kontak'] as $field)
+                        {{-- Social Media & Kontak sesuai urutan --}}
+                        @foreach(['facebook', 'instagram', 'twitter', 'linkedin', 'whatsapp', 'tiktok', 'email', 'kontak'] as $field)
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="{{ $field }}">{{ ucfirst($field) }}</label>
                             <div class="col-sm-10">
@@ -32,36 +31,21 @@
                         </div>
                         @endforeach
 
-                        {{-- Bagian Alamat dengan Integrasi Peta --}}
+                        {{-- Alamat & Peta --}}
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="alamat">Alamat</label>
                             <div class="col-sm-10">
-                                {{-- Textarea Alamat dengan default Palm Asri 2 --}}
                                 <textarea class="form-control mb-3 @error('alamat') is-invalid @enderror" 
                                           name="alamat" id="alamat" rows="3" 
                                           placeholder="Input Alamat Lengkap">{{ old('alamat', 'Palm Asri 2 Blk. G No.16, Pedagangan, Kec. Dukuhwaru, Kab. Tegal, Jawa Tengah, 52451 Indonesia') }}</textarea>
-                                
-                                {{-- Input Hidden untuk Latitude & Longitude Tegal --}}
+{{-- 
                                 <input type="hidden" name="latitude" id="latitude" value="{{ old('latitude', '-6.976366') }}">
                                 <input type="hidden" name="longitude" id="longitude" value="{{ old('longitude', '109.120838') }}">
-                                
-                                <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <label class="form-label text-primary mb-0">
-                                        <i class="bx bx-map"></i> Geser Pin untuk Menentukan Lokasi Presisi
-                                    </label>
-                                    {{-- Tombol Lihat di Google Maps --}}
-                                    <a href="https://www.google.com/maps?q=-6.976366,109.120838" 
-                                       target="_blank" 
-                                       class="btn btn-sm btn-outline-danger">
-                                        <i class="bx bx-map-pin"></i> Lihat di Google Maps
-                                    </a>
-                                </div>
 
                                 <div id="map" style="width: 100%; height: 400px; border-radius: 8px; border: 1px solid #ddd;"></div>
-                            </div>
+                            </div> --}}
                         </div>
 
-                        {{-- Tombol Simpan --}}
                         <div class="row justify-content-end mt-4">
                             <div class="col-sm-10">
                                 <button type="submit" class="btn btn-primary">
@@ -79,42 +63,32 @@
 @endsection
 
 @section('footer')
-{{-- Load Leaflet JS & CSS (Lebih ringan dan gratis) --}}
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const latInput = document.getElementById('latitude');
-        const lngInput = document.getElementById('longitude');
-        
-        // Koordinat awal (Palm Asri 2, Tegal)
-        let lat = parseFloat(latInput.value);
-        let lng = parseFloat(lngInput.value);
+document.addEventListener("DOMContentLoaded", function() {
+    const latInput = document.getElementById('latitude');
+    const lngInput = document.getElementById('longitude');
 
-        // Inisialisasi Peta
-        const map = L.map('map').setView([lat, lng], 17);
+    let lat = parseFloat(latInput.value);
+    let lng = parseFloat(lngInput.value);
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; OpenStreetMap contributors'
-        }).addTo(map);
+    const map = L.map('map').setView([lat, lng], 17);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap contributors' }).addTo(map);
 
-        // Tambahkan Marker yang bisa digeser
-        const marker = L.marker([lat, lng], {draggable: true}).addTo(map);
+    const marker = L.marker([lat, lng], {draggable: true}).addTo(map);
 
-        // Update input saat marker digeser
-        marker.on('dragend', function(e) {
-            const position = marker.getLatLng();
-            latInput.value = position.lat.toFixed(8);
-            lngInput.value = position.lng.toFixed(8);
-        });
-
-        // Update pin saat peta diklik
-        map.on('click', function(e) {
-            marker.setLatLng(e.latlng);
-            latInput.value = e.latlng.lat.toFixed(8);
-            lngInput.value = e.latlng.lng.toFixed(8);
-        });
+    marker.on('dragend', function(e) {
+        const pos = marker.getLatLng();
+        latInput.value = pos.lat.toFixed(8);
+        lngInput.value = pos.lng.toFixed(8);
     });
+
+    map.on('click', function(e) {
+        marker.setLatLng(e.latlng);
+        latInput.value = e.latlng.lat.toFixed(8);
+        lngInput.value = e.latlng.lng.toFixed(8);
+    });
+});
 </script>
 @endsection

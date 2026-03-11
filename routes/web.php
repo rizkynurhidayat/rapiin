@@ -60,6 +60,4 @@ Route::middleware('auth')->group(function () {
     Route::put('/footer/edit/{footer}', [FooterController::class, 'update'])->name('footer.update');
     Route::delete('/footer/{footer}', [FooterController::class, 'destroy'])->name('footer.destroy');
 
-    // TAMBAHKAN INI: Route khusus untuk menangani perubahan data instan dari tabel index
-    Route::post('/footer/update-inline/{id}', [FooterController::class, 'updateInline'])->name('footer.updateInline');
 });

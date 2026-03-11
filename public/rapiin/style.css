@@ -929,29 +929,41 @@ html {
     border-radius: 8px;
 }
 
-/* Efek Hover: Cyan Glow & Glassmorphism */
-.address-link:hover {
-    background: rgba(0, 255, 255, 0.1); /* Efek kaca transparan biru */
-    color: #00ffff; /* Warna Cyan Glow */
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-    transform: translateY(-2px); /* Sedikit naik saat disentuh */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+/* ================= MOBILE ================= */
+@media (max-width:768px){
+
+.footer-content{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
 }
 
-.address-link span {
-    font-family: 'Poppins', sans-serif; /* Menggunakan font pilihan Anda */
-    transition: border-bottom 0.3s ease;
+/* logo */
+.brand-info{
+  grid-column:1 / -1;
 }
 
-.address-link:hover span {
-    border-bottom: 1.5px solid #00ffff;
-}
-.address a {
-    cursor: pointer;
-    display: inline-block;
-    transition: opacity 0.2s ease-in-out;
+/* navigasi kiri */
+.footer-nav{
+  grid-column:1;
+  grid-row:2;
 }
 
-.address a:active {
-    opacity: 0.6; /* Memberikan efek 'tekan' saat diklik */
+/* perusahaan kanan */
+.footer-company{
+  grid-column:2;
+  grid-row:2;
+}
+
+/* hubungi kami */
+.contact-col{
+  grid-column:1 / -1;
+  grid-row:3;
+}
+
+/* copyright */
+.footer-bottom{
+  grid-column:1 / -1;
+}
+
 }
