@@ -50,7 +50,7 @@
   </section>
 <!-- Navbar END -->
 <!-- Hero -->
-<section class="hero">
+<section class="hero fade-scroll">
   <div class="hero-text">
     @if($hero)
       <h2 class="poppins-semibold">
@@ -70,7 +70,7 @@
 </section>
 <!-- Hero END -->
 <!-- Fitur -->
-<section id="Fitur" class="fitur" >
+<section id="Fitur" class="fitur fade-scroll" >
   <h1 class="fitur-title">
     Fitur-fitur POS <span class="highlight">RAPIIN</span>
   </h1>
@@ -97,7 +97,7 @@
 </section>
 <!-- Fitur END -->
 <!-- Demo -->
-<section id="Demo" class="perbandingan">
+<section id="Demo" class="perbandingan fade-scroll">
   <h1 class="judul">Perbandingan Sistem Kasir</h1>
   
   <div class="perbandingan-grid">
@@ -141,7 +141,7 @@
 </section>
 <!-- Demo END -->
 <!-- Paket -->
-<section id="Paket" class="pricing-section">
+<section id="Paket" class="pricing-section fade-scroll">
     
     {{-- 1. HEADER SECTION --}}
     @if($pricings->isNotEmpty())
@@ -264,6 +264,7 @@
   </div>
 </footer>
 <!-- Footer END -->     
- <script src="belajar.js"></script>   
+ <script src="{{ asset('rapiin/belajar.js') }}"></script>   
+</body>
 </body>
 </html>
