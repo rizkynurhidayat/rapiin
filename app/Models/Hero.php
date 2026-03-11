@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Hero extends Model
 {
-    //
     protected $fillable = [
-        'judul',
-        'deskripsi',
-        'image',
+        'judul_awal', 
+        'highlight_text', 
+        'judul_akhir', 
         'button',
+        'image'
     ];
 }

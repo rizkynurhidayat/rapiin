@@ -13,10 +13,17 @@ return new class extends Migration
     {
         Schema::create('heroes', function (Blueprint $table) {
             $table->id();
-            $table -> string('judul');
-            $table -> string('deskripsi');
-            $table -> string('image');
-            $table -> string('button');
+            // Bagian Judul
+            $table->string('judul_awal');      
+            $table->string('highlight_text');  
+            $table->string('judul_akhir');     
+            
+            // Kolom pendukung
+            $table->string('button');       
+            
+            // Tambahkan nullable() di sini
+            $table->string('image')->nullable(); 
+            
             $table->timestamps();
         });
     }
