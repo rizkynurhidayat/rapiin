@@ -16,7 +16,5 @@ class Footer extends Model
        'email',
        'kontak',
        'alamat',
-       'latitude', 
-       'longitude',
     ];
 }

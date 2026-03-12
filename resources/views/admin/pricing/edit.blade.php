@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-xxl flex-grow-1 container-p-y">
     <h4 class="fw-bold py-3 mb-4">
-        <span class="text-muted fw-light">Pricing /</span> Edit Paket {{ strtoupper($pricing->nama_paket) }}
+        <span class="text-muted fw-light"></span> Edit Pricing {{ strtoupper($pricing->nama_paket) }}
     </h4>
 
     {{-- PERBAIKAN: Tambahkan 'admin.' di depan rute update --}}
