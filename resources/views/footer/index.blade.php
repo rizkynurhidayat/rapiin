@@ -1,23 +1,42 @@
 @extends('layouts.app')
 
 @section('content')
+
+<style>
+.box-link{
+    width:90px;
+    min-height:120px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    padding:6px;
+    font-size:12px;
+    background:#f9f9f9;
+    word-break:break-word;
+}
+</style>
+
 <div class="container-xxl flex-grow-1 container-p-y">
 
+    <h4 class="fw-bold py-3 mb-4">
+        <span class="text-muted fw-light"></span> Footer Data
+    </h4>
+
     @if (session('success'))
-        <div class="alert alert-success alert-dismissible">
+        <div class="alert alert-success alert-dismissible fade show">
             {{ session('success') }}
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
     @endif
 
     <div class="card">
-        <div class="card-header d-flex align-items-center justify-content-between">
-            <h5 class="mb-0">Footer Data</h5>
-            <a href="{{ route('footer.create') }}" class="btn btn-primary">Add Footer</a>
+
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Kelola Footer </h5>
         </div>
 
-        <div class="table-responsive text-nowrap">
-            <table class="table table-hover">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+
                 <thead>
                     <tr>
                         <th>Facebook</th>
@@ -28,84 +47,99 @@
                         <th>TikTok</th>
                         <th>Email</th>
                         <th>Kontak</th>
-                        <th>Alamat</th> 
+                        <th>Alamat</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
-                <tbody>
-                    @foreach($footers as $footer)
-                        <tr>
-                            <td>{{ $footer->facebook }}</td>
-                            <td>{{ $footer->instagram }}</td>
-                            <td>{{ $footer->twitter }}</td>
-                            <td>{{ $footer->linkedin }}</td>
-                            <td>{{ $footer->whatsapp }}</td>
-                            <td>{{ $footer->tiktok }}</td>
-                            <td>{{ $footer->email }}</td>
-                            <td>{{ $footer->kontak }}</td>
-                            
-                            <td>
-                                <div style="max-width: 250px; white-space: normal; margin-bottom: 10px;">
-                                    {{ $footer->alamat ?? '-' }}
-                                </div>
-                                
-                                <div id="map-{{ $footer->id }}" style="width: 250px; height: 150px; border-radius: 8px; border: 1px solid #ddd;"></div>
 
-                                <a href="https://www.google.com/maps?q={{ $footer->latitude }},{{ $footer->longitude }}" 
-                                   target="_blank" class="btn btn-sm btn-outline-danger mt-2">
-                                    <i class="bx bx-map-pin"></i> Lihat Google Maps
-                                </a>
+                <tbody class="table-border-bottom-0">
+
+                    @forelse($footers as $footer)
+
+                        <tr>
+
+                            <td>
+                                <div class="box-link">
+                                    {{ Str::limit($footer->facebook, 50) }}
+                                </div>
                             </td>
 
                             <td>
-                                <div class="dropdown">
-                                    <button class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                        <i class="bx bx-dots-vertical-rounded"></i>
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="{{ route('footer.edit', $footer) }}">
-                                            <i class="bx bx-edit-alt me-1"></i> Edit
-                                        </a>
-                                        <form action="{{ route('footer.destroy', $footer) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus?')">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="dropdown-item text-danger">
-                                                <i class="bx bx-trash me-1"></i> Delete
-                                            </button>
-                                        </form>
-                                    </div>
+                                <div class="box-link">
+                                    {{ Str::limit($footer->instagram, 50) }}
                                 </div>
+                            </td>
+
+                            <td>
+                                <div class="box-link">
+                                    {{ Str::limit($footer->twitter, 50) }}
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="box-link">
+                                    {{ Str::limit($footer->linkedin, 50) }}
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="box-link">
+                                    {{ Str::limit($footer->whatsapp, 50) }}
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="box-link">
+                                    {{ Str::limit($footer->tiktok, 50) }}
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="box-link">
+                                    {{ $footer->email }}
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="box-link">
+                                    {{ $footer->kontak }}
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="box-link">
+                                    {{ Str::limit($footer->alamat, 60) }}
+                                </div>
+                            </td>
+
+                            <td>
+
+                                <a href="{{ route('footer.edit', $footer) }}"
+                                   class="btn btn-sm btn-primary">
+                                    <i class="bx bx-edit-alt"></i> Edit
+                                </a>
+
+                            </td>
+
+                        </tr>
+
+                    @empty
+
+                        <tr>
+                            <td colspan="10" class="text-center">
+                                Data footer tidak ditemukan
                             </td>
                         </tr>
-                    @endforeach
+
+                    @endforelse
+
                 </tbody>
+
             </table>
         </div>
+
     </div>
+
 </div>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    @foreach($footers as $footer)
-        // Pastikan latitude & longitude ada nilainya
-        var lat{{ $footer->id }} = {{ $footer->latitude ?? -6.9147 }}; 
-        var lng{{ $footer->id }} = {{ $footer->longitude ?? 109.1307 }};
-
-        var mapOptions{{ $footer->id }} = {
-            center: { lat: lat{{ $footer->id }}, lng: lng{{ $footer->id }} },
-            zoom: 15,
-            disableDefaultUI: true, // Biar tampilan map mini lebih bersih
-        };
-
-        var map{{ $footer->id }} = new google.maps.Map(document.getElementById("map-{{ $footer->id }}"), mapOptions{{ $footer->id }});
-
-        var marker{{ $footer->id }} = new google.maps.Marker({
-            position: { lat: lat{{ $footer->id }}, lng: lng{{ $footer->id }} },
-            map: map{{ $footer->id }},
-            title: "{{ $footer->alamat }}"
-        });
-    @endforeach
-});
-</script>
 @endsection

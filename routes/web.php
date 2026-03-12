@@ -55,10 +55,6 @@ Route::middleware('auth')->group(function () {
 
     //route footer
     Route::get('/footer', [FooterController::class, 'index'])->name('footer.index');
-    Route::get('/footer/create', [FooterController::class, 'create'])->name('footer.create');
-    Route::post('/footer/create', [FooterController::class, 'store'])->name('footer.store');
     Route::get('/footer/edit/{footer}', [FooterController::class, 'edit'])->name('footer.edit');
     Route::put('/footer/edit/{footer}', [FooterController::class, 'update'])->name('footer.update');
-    Route::delete('/footer/{footer}', [FooterController::class, 'destroy'])->name('footer.destroy');
-
 });

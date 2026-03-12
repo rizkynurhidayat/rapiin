@@ -22,8 +22,6 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('kontak')->nullable();
             $table->string('alamat')->nullable();
-            $table->string('latitude')->nullable();
-            $table->string('longitude')->nullable();
             $table->timestamps();
         });
     }
