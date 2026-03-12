@@ -213,11 +213,11 @@
         </p>
         <div class="social-icons">
           <img src="{{ asset('rapiin/icon/gg_facebook.png') }}" alt="facebook" 
-               onclick="window.location.href='{{!empty($footer->facebook) ? $footer->facebook : 'https://www.facebook.com/profile.php?id=61556979945239&mibextid=LQQJ4d' }}'" style="cursor: pointer;">
+               onclick="window.location.href='{{!empty($footer->facebook) ? $footer->facebook : 'https://www.facebook.com/profile.php?id=61556979945239&mibextid=LQQJ4d' }}'"style="cursor: pointer;" >
           <img src="{{ asset('rapiin/icon/mdi_instagram.png') }}" alt="instagram" 
-               onclick="window.location.href='{{ !empty($footer->instagram) ? $footer->instagram : 'https://www.instagram.com/techade.id/' }}'">
-          <img src="{{ asset('rapiin/icon/Clip path group.png') }}" alt="x" 
-               onclick="window.location.href='{{ !empty($footer->x) ? $footer->x : 'https://www.x.com/techade_id' }}'" style="cursor: pointer;">
+               onclick="window.location.href='{{ !empty($footer->instagram) ? $footer->instagram : 'https://www.instagram.com/techade.id/' }}'"style="cursor: pointer;">
+          <img src="{{ asset('rapiin/icon/Clip path group.png') }}" alt="twitter" 
+               onclick="window.location.href='{{ !empty($footer->twitter) ? $footer->twitter : 'https://www.x.com/techade_id' }}'" style="cursor: pointer;">
           <img src="{{ asset('rapiin/icon/ri_linkedin-fill.png') }}" alt="linkedin" 
                onclick="window.location.href='{{ !empty($footer->linkedin) ? $footer->linkedin : 'https://www.linkedin.com/company/techade-id?originalSubdomain=id' }}'" style="cursor: pointer;">
           <img src="{{ asset('rapiin/icon/ic_baseline-whatsapp.png') }}" alt="whatsapp" 
