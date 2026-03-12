@@ -3,13 +3,15 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HeroController;
 use App\Http\Controllers\PricingController;
 use App\Http\Controllers\FooterController;
 
 
 // --- HALAMAN DEPAN ---
-Route::get('/', [PricingController::class, 'index'])->name('home');
+// Route::get('/', [PricingController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index']);
 
 // --- AUTH GUEST ---
 Route::middleware('guest')->group(function () {

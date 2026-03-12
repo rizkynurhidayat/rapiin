@@ -1,3 +1,5 @@
+@include('component.popup', ['pricings' => $pricings])
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -24,7 +26,8 @@
     <li><a href="#Paket">Paket</a></li>
   </ul>
   </div>
-  <button class="btn-nav">Mulai</button>
+  {{-- <button class="btn-nav">Mulai</button> --}}
+  <button class="btn-nav" onclick="openPopup()">Mulai</button>
   <div class="menu">
     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
   </div>
@@ -47,7 +50,7 @@
   </section>
 <!-- Navbar END -->
 <!-- Hero -->
-<section class="hero">
+<section class="hero fade-scroll">
   <div class="hero-text">
     @if($hero)
       <h2 class="poppins-semibold">
@@ -57,7 +60,7 @@
         {{ $hero->judul_akhir }}
       </h2>
       
-     <button class="btn-hero">{{ $hero->button }}</button>
+     <button class="btn-hero" onclick="openPopup()">{{ $hero->button }}</button>
     @endif
   </div>
   
@@ -67,7 +70,7 @@
 </section>
 <!-- Hero END -->
 <!-- Fitur -->
-<section id="Fitur" class="fitur" >
+<section id="Fitur" class="fitur fade-scroll" >
   <h1 class="fitur-title">
     Fitur-fitur POS <span class="highlight">RAPIIN</span>
   </h1>
@@ -94,7 +97,7 @@
 </section>
 <!-- Fitur END -->
 <!-- Demo -->
-<section id="Demo" class="perbandingan">
+<section id="Demo" class="perbandingan fade-scroll">
   <h1 class="judul">Perbandingan Sistem Kasir</h1>
   
   <div class="perbandingan-grid">
@@ -138,7 +141,7 @@
 </section>
 <!-- Demo END -->
 <!-- Paket -->
-<section id="Paket" class="pricing-section">
+<section id="Paket" class="pricing-section fade-scroll">
     
     {{-- 1. HEADER SECTION --}}
     @if($pricings->isNotEmpty())
@@ -155,7 +158,8 @@
     {{-- 2. WRAPPER UNTUK KARTU --}}
     <div class="flex-wrapper">
         
-        @foreach($pricings as $item)
+        {{-- @foreach($pricings as $item) --}}
+        @foreach($pricings as $index => $item)
             <div class="card {{ $item->icon ? 'active' : '' }}">
                 
                 @if($item->icon)
@@ -182,7 +186,7 @@
                 
                 <h2 class="card-price">{{ $item->harga_lengkap }}</h2>
                 
-                <button class="card-button">{{ $item->teks_button }}</button>
+                <button class="card-button" onclick="openPopup({{ $index }})">{{ $item->teks_button }}</button>
                 
                 {{-- Bagian fitur kembali normal sesuai CSS aslimu --}}
                 <ul class="card-features">
@@ -260,6 +264,7 @@
   </div>
 </footer>
 <!-- Footer END -->     
- <script src="belajar.js"></script>   
+ <script src="{{ asset('rapiin/belajar.js') }}"></script>   
+</body>
 </body>
 </html>
