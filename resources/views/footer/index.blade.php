@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container-xxl flex-grow-1 container-p-y">
+
     @if (session('success'))
         <div class="alert alert-success alert-dismissible">
             {{ session('success') }}
@@ -19,34 +20,39 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>Twitter</th>
-                        <th>Instagram</th>
                         <th>Facebook</th>
+                        <th>Instagram</th>
+                        <th>Twitter</th>
+                        <th>LinkedIn</th>
+                        <th>WhatsApp</th>
                         <th>TikTok</th>
                         <th>Email</th>
                         <th>Kontak</th>
-                        <th>Alamat</th>
+                        <th>Alamat</th> 
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($footers as $footer)
                         <tr>
-                            <td>{{ $footer->twitter }}</td>
-                            <td>{{ $footer->instagram }}</td>
                             <td>{{ $footer->facebook }}</td>
+                            <td>{{ $footer->instagram }}</td>
+                            <td>{{ $footer->twitter }}</td>
+                            <td>{{ $footer->linkedin }}</td>
+                            <td>{{ $footer->whatsapp }}</td>
                             <td>{{ $footer->tiktok }}</td>
                             <td>{{ $footer->email }}</td>
                             <td>{{ $footer->kontak }}</td>
                             
-                            {{-- Kolom Alamat yang lebih cerdas --}}
                             <td>
-                                <div style="max-width: 200px; white-space: normal;">
-                                    <strong>Alamat:</strong> {{ $footer->alamat }}
+                                <div style="max-width: 250px; white-space: normal; margin-bottom: 10px;">
+                                    {{ $footer->alamat ?? '-' }}
                                 </div>
+                                
+                                <div id="map-{{ $footer->id }}" style="width: 250px; height: 150px; border-radius: 8px; border: 1px solid #ddd;"></div>
+
                                 <a href="https://www.google.com/maps?q={{ $footer->latitude }},{{ $footer->longitude }}" 
-                                   target="_blank" 
-                                   class="btn btn-sm btn-outline-danger mt-2">
+                                   target="_blank" class="btn btn-sm btn-outline-danger mt-2">
                                     <i class="bx bx-map-pin"></i> Lihat Google Maps
                                 </a>
                             </td>
@@ -63,7 +69,7 @@
                                         <form action="{{ route('footer.destroy', $footer) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus?')">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="dropdown-item">
+                                            <button type="submit" class="dropdown-item text-danger">
                                                 <i class="bx bx-trash me-1"></i> Delete
                                             </button>
                                         </form>
@@ -77,4 +83,29 @@
         </div>
     </div>
 </div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    @foreach($footers as $footer)
+        // Pastikan latitude & longitude ada nilainya
+        var lat{{ $footer->id }} = {{ $footer->latitude ?? -6.9147 }}; 
+        var lng{{ $footer->id }} = {{ $footer->longitude ?? 109.1307 }};
+
+        var mapOptions{{ $footer->id }} = {
+            center: { lat: lat{{ $footer->id }}, lng: lng{{ $footer->id }} },
+            zoom: 15,
+            disableDefaultUI: true, // Biar tampilan map mini lebih bersih
+        };
+
+        var map{{ $footer->id }} = new google.maps.Map(document.getElementById("map-{{ $footer->id }}"), mapOptions{{ $footer->id }});
+
+        var marker{{ $footer->id }} = new google.maps.Marker({
+            position: { lat: lat{{ $footer->id }}, lng: lng{{ $footer->id }} },
+            map: map{{ $footer->id }},
+            title: "{{ $footer->alamat }}"
+        });
+    @endforeach
+});
+</script>
 @endsection

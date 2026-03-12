@@ -1106,3 +1106,52 @@ body.no-scroll{
   opacity:1;
   transform: translateY(0);
 }
+/* Styling khusus untuk link alamat */
+.address-link {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width:768px){
+
+.footer-content{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+}
+
+/* logo */
+.brand-info{
+  grid-column:1 / -1;
+}
+
+/* navigasi kiri */
+.footer-nav{
+  grid-column:1;
+  grid-row:2;
+}
+
+/* perusahaan kanan */
+.footer-company{
+  grid-column:2;
+  grid-row:2;
+}
+
+/* hubungi kami */
+.contact-col{
+  grid-column:1 / -1;
+  grid-row:3;
+}
+
+/* copyright */
+.footer-bottom{
+  grid-column:1 / -1;
+}
+
+}

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Hero;
 use App\Models\Pricing;
+use App\Models\Footer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -17,8 +18,9 @@ class PricingController extends Controller
     {
         $hero = Hero::first();
         $pricings = Pricing::all();
-        
-        return view('index', compact('hero', 'pricings'));
+        $footer = Footer::latest()->first();
+
+        return view('index', compact('hero', 'pricings', 'footer'));
     }
 
     /**

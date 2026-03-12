@@ -7,14 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class Footer extends Model
 {
     protected $fillable = [
-        'twitter',
-        'instagram',
-        'facebook',
-        'tiktok',
-        'email',
-        'kontak',
-        'alamat',
-        'latitude',
-        'longitude'
+       'facebook',
+       'instagram',
+       'twitter',
+       'linkedin',
+       'whatsapp',
+       'tiktok',
+       'email',
+       'kontak',
+       'alamat',
+       'latitude', 
+       'longitude',
     ];
 }

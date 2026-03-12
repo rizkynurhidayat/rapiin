@@ -206,57 +206,71 @@
             
 <!-- Paket END -->
 <!-- Footer -->
-        <footer id="footer">
+<footer id="footer">
   <div class="footer-container">
     <div class="footer-content">
+      <!-- Brand Info -->
       <div class="footer-col brand-info">
-        <img src="icon/image 23.png" alt="logo techade" class="footer-logo">
-        <p>Solusi point of sale untuk mengelola operasional bisnis secara lebih mudah dan terstruktur.</p>
+        <img src="{{ asset('rapiin/icon/image 23.png') }}" alt="logo techade" class="footer-logo">
+        <p style="font-size: 14px; line-height: 1.8; color: white; max-width: 400px;">
+          Solusi point of sale untuk mengelola operasional bisnis secara lebih mudah dan terstruktur.
+        </p>
         <div class="social-icons">
-          <a href="#"><img src="{{ asset ('rapiin') }}/icon/gg_facebook.png" alt="facebook"></a>
-          <a href="#"><img src="{{ asset ('rapiin') }}/icon/mdi_instagram.png" alt="instagram"></a>
-          <a href="#"><img src="{{ asset ('rapiin') }}/icon/Clip path group.png" alt="x"></a>
-          <a href="#"><img src="{{ asset ('rapiin') }}/icon/ic_baseline-whatsapp.png" alt="whatsapp"></a>
+          <img src="{{ asset('rapiin/icon/gg_facebook.png') }}" alt="facebook" 
+               onclick="window.location.href='{{!empty($footer->facebook) ? $footer->facebook : 'https://www.facebook.com/profile.php?id=61556979945239&mibextid=LQQJ4d' }}'" style="cursor: pointer;">
+          <img src="{{ asset('rapiin/icon/mdi_instagram.png') }}" alt="instagram" 
+               onclick="window.location.href='{{ !empty($footer->instagram) ? $footer->instagram : 'https://www.instagram.com/techade.id/' }}'">
+          <img src="{{ asset('rapiin/icon/Clip path group.png') }}" alt="x" 
+               onclick="window.location.href='{{ !empty($footer->x) ? $footer->x : 'https://www.x.com/techade_id' }}'" style="cursor: pointer;">
+          <img src="{{ asset('rapiin/icon/ri_linkedin-fill.png') }}" alt="linkedin" 
+               onclick="window.location.href='{{ !empty($footer->linkedin) ? $footer->linkedin : 'https://www.linkedin.com/company/techade-id?originalSubdomain=id' }}'" style="cursor: pointer;">
+          <img src="{{ asset('rapiin/icon/ic_baseline-whatsapp.png') }}" alt="whatsapp" 
+               onclick="window.location.href='https://wa.me/{{ preg_replace('/[^0-9]/', '', !empty($footer->whatsapp) ? $footer->whatsapp : '6287812066967') }}'" style="cursor: pointer;">
+          <img src="{{ asset('rapiin/icon/mingcute_tiktok-fill.png') }}" alt="tiktok" 
+               onclick="window.location.href='{{ !empty($footer->tiktok) ? $footer->tiktok : 'https://www.tiktok.com/@techade.id?_r=1&_t=ZS-94YoxxiMU4e' }}'" style="cursor: pointer;">
         </div>
       </div>
 
+      <!-- Navigasi -->
       <div class="footer-col">
         <h3>Navigasi</h3>
         <ul>
-          <li>Servis</li>
-          <li>Portofolio</li>
-          <li>Keunggulan</li>
+          <li onclick="window.location.href='https://techade.id/#services'" style="cursor: pointer;">Servis</li>
+          <li onclick="window.location.href='https://techade.id/#portfolio'" style="cursor: pointer;">Portofolio</li>
+          <li onclick="window.location.href='https://techade.id/#keunggulan'" style="cursor: pointer;">Keunggulan</li>
         </ul>
       </div>
 
+      <!-- Hubungi Kami -->
       <div class="footer-col contact-col">
         <h3>Hubungi Kami</h3>
         <ul>
-          <li><img src="{{ asset ('rapiin') }}/icon/mingcute_phone-fill.png" class="icon"> contact@techade.id</li>
-          <li>
-            <img src="{{ asset('rapiin') }}/icon/mingcute_phone-fill.png" class="icon"> 
-            <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $footer->kontak ?? '+6287812066967') }}" 
-               target="_blank" 
-               style="color: inherit; text-decoration: none;">
-               {{ $footer->kontak ?? '+6287812066967' }}
-            </a>
+          <li onclick="window.location.href='mailto:{{ !empty($footer->email) ? $footer->email : 'contact@techade.id' }}'" style="cursor: pointer;">
+            <img src="{{ asset('rapiin/icon/ic_round-email.png') }}" class="icon"> 
+            <span>{{ !empty($footer->email) ? $footer->email : 'contact@techade.id' }}</span>
+          </li>  
+          <li onclick="window.location.href='https://wa.me/{{ preg_replace('/[^0-9]/', '', !empty($footer->kontak) ? $footer->kontak : '6287812066967') }}'" style="cursor: pointer;">
+            <img src="{{ asset('rapiin/icon/mingcute_phone-fill.png') }}" class="icon"> 
+            <span>{{ !empty($footer->kontak) ? $footer->kontak : '+6287812066967' }}</span>
           </li>
-          <li class="address">
-            <img src="{{ asset ('rapiin') }}/icon/mdi_address-marker (1).png" class="icon">
-            <span>{{ $footer->alamat ?? 'Palm Asri 2 Blk. G No.16, Pedagangan, Kec. Dukuhwaru, Kab. Tegal, Jawa Tengah, 52451 Indonesia' }}</span>
+          <li class="address" onclick="window.location.href='https://www.google.com/maps/search/?api=1&query={{ urlencode(!empty($footer->alamat) ? $footer->alamat : 'Palm Asri 2 Blk. G No.16, Mejen, Pedagangan, Kec. Dukuhwaru, Kabupaten Tegal, Jawa Tengah 52451') }}'" style="cursor: pointer;">
+            <img src="{{ asset('rapiin/icon/mdi_address-marker (1).png') }}" class="icon">
+            <span>{{ !empty($footer->alamat) ? $footer->alamat : 'Palm Asri 2 Blk. G No.16, Mejen, Pedagangan, Kec. Dukuhwaru, Kabupaten Tegal, Jawa Tengah 52451' }}</span>
           </li>
         </ul>
       </div>
 
+      <!-- Perusahaan -->
       <div class="footer-col">
         <h3>Perusahaan</h3>
         <ul>
-          <li>Tentang Kami</li>
-          <li>Produk</li>
+          <li onclick="window.location.href='https://techade.id/about'" style="cursor: pointer;">Tentang Kami</li>
+          <li onclick="window.location.href='https://techade.id/products'" style="cursor: pointer;">Produk</li>
         </ul>
       </div>
     </div>
-    
+
+    <!-- Footer Bottom -->
     <div class="footer-bottom">
       <hr>
       <p>© 2025 | Techade.id Seluruh Hak Cipta Dilindungi</p>
