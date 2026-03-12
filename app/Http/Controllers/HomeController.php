@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Hero;
 use App\Models\Pricing;
+use App\Models\Footer;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -12,6 +13,7 @@ class HomeController extends Controller
     {
         $pricings = Pricing::all();
         $hero = Hero::first();
-        return view('index', compact('pricings', 'hero'));
+        $footer = Footer::latest()->first();
+        return view('index', compact('pricings', 'hero', 'footer'));
     }
 }
