@@ -77,48 +77,35 @@
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
             </li>
-
+            <!-- Hero Section -->
             <li class="menu-item {{ request()->routeIs('admin.hero.*') ? 'active' : '' }}">
                 <a href="{{ route('admin.hero.edit') }}" class="menu-link">
-                    <i class="menu-icon tf-icons bx bx-image-add"></i>
+                    <i class="menu-icon tf-icons bx bx-crown"></i>
                     <div data-i18n="Hero Section">Hero Section</div>
                 </a>
             </li>
-
+           {{-- Pricing Section --}}
             <li class="menu-item {{ request()->routeIs('admin.pricing.*') ? 'active' : '' }}">
-    <a href="{{ route('admin.pricing.index') }}" class="menu-link">
-        <i class="menu-icon tf-icons bx bx-dollar-circle"></i>
-        <div>Pricing Section</div>
-    </a>
-</li>
+                 <a href="{{ route('admin.pricing.index') }}" class="menu-link">
+                   <i class="menu-icon tf-icons bx bx-dollar-circle"></i>
+                   <div>Pricing Section</div>
+                </a>
+            </li>
 
             <!-- Users -->
             <li class="menu-item {{request()-> routeIs ('users.*') ? 'active' : ''}}">
               <a href="{{route ('users.index') }}" class="menu-link">
-                <!-- <i class="menu-icon tf-icons bx bx-home-circle"></i> -->
                 <i class="bx bx-user me-2"></i>
-                {{-- <i class="menu-icon tf-icons bx bx-layout"></i> --}}
                 <div data-i18n="Analytics">User Data</div>
               </a>
             </li>
             <li class="menu-header small text-uppercase">
               <span class="menu-header-text">Pages</span>
-              <!-- Opsi -->
             </li>
-            {{-- <li class="menu-item {{request()-> routeIs ('opsi.*') ? 'active' : ''}}">
-              <a href="{{route ('opsi.index') }}" class="menu-link">
-                <!-- <i class="menu-icon tf-icons bx bx-home-circle"></i> -->
-                <i class="bx bx-layout me-2"></i>
-                {{-- <i class="menu-icon tf-icons bx bx-layout"></i> --}}
-                {{-- <div data-i18n="Analytics">Opsi Data</div>
-              </a> --}}
-            {{-- </li> --}}
             <!-- Footer -->
             <li class="menu-item {{request()-> routeIs ('footer.*') ? 'active' : ''}}">
               <a href="{{route ('footer.index') }}" class="menu-link">
-                <!-- <i class="menu-icon tf-icons bx bx-home-circle"></i> -->
-                <i class="bx bx-layout me-2"></i>
-                {{-- <i class="menu-icon tf-icons bx bx-layout"></i> --}}
+                <i class="menu-icon tf-icons bx bx-layout"></i>
                 <div data-i18n="Analytics">Footer Data</div>
               </a>
             </li>
