@@ -213,17 +213,17 @@
         </p>
         <div class="social-icons">
           <img src="{{ asset('rapiin/icon/gg_facebook.png') }}" alt="facebook" 
-               onclick="window.location.href='{{ $footer->facebook ?? 'https://www.facebook.com/profile.php?id=61556979945239&mibextid=LQQJ4d' }}'" style="cursor: pointer;">
+               onclick="window.location.href='{{!empty($footer->facebook) ? $footer->facebook : 'https://www.facebook.com/profile.php?id=61556979945239&mibextid=LQQJ4d' }}'" style="cursor: pointer;">
           <img src="{{ asset('rapiin/icon/mdi_instagram.png') }}" alt="instagram" 
-               onclick="window.location.href='{{ $footer->instagram ?? 'https://www.instagram.com/techade.id/' }}'" style="cursor: pointer;">
+               onclick="window.location.href='{{ !empty($footer->instagram) ? $footer->instagram : 'https://www.instagram.com/techade.id/' }}'">
           <img src="{{ asset('rapiin/icon/Clip path group.png') }}" alt="x" 
-               onclick="window.location.href='{{ $footer->x ?? 'https://www.x.com/techade_id' }}'" style="cursor: pointer;">
+               onclick="window.location.href='{{ !empty($footer->x) ? $footer->x : 'https://www.x.com/techade_id' }}'" style="cursor: pointer;">
           <img src="{{ asset('rapiin/icon/ri_linkedin-fill.png') }}" alt="linkedin" 
-               onclick="window.location.href='{{ $footer->linkedin ?? 'https://www.linkedin.com/company/techade-id?originalSubdomain=id' }}'" style="cursor: pointer;">
+               onclick="window.location.href='{{ !empty($footer->linkedin) ? $footer->linkedin : 'https://www.linkedin.com/company/techade-id?originalSubdomain=id' }}'" style="cursor: pointer;">
           <img src="{{ asset('rapiin/icon/ic_baseline-whatsapp.png') }}" alt="whatsapp" 
-               onclick="window.location.href='https://wa.me/{{ preg_replace('/[^0-9]/', '', $footer->whatsapp ?? '6287812066967') }}'" style="cursor: pointer;">
+               onclick="window.location.href='https://wa.me/{{ preg_replace('/[^0-9]/', '', !empty($footer->whatsapp) ? $footer->whatsapp : '6287812066967') }}'" style="cursor: pointer;">
           <img src="{{ asset('rapiin/icon/mingcute_tiktok-fill.png') }}" alt="tiktok" 
-               onclick="window.location.href='{{ $footer->tiktok ?? 'https://www.tiktok.com/@techade.id?_r=1&_t=ZS-94YoxxiMU4e' }}'" style="cursor: pointer;">
+               onclick="window.location.href='{{ !empty($footer->tiktok) ? $footer->tiktok : 'https://www.tiktok.com/@techade.id?_r=1&_t=ZS-94YoxxiMU4e' }}'" style="cursor: pointer;">
         </div>
       </div>
 
@@ -241,17 +241,17 @@
       <div class="footer-col contact-col">
         <h3>Hubungi Kami</h3>
         <ul>
-          <li onclick="window.location.href='mailto:{{ $footer->email ?? 'contact@techade.id' }}'" style="cursor: pointer;">
+          <li onclick="window.location.href='mailto:{{ !empty($footer->email) ? $footer->email : 'contact@techade.id' }}'" style="cursor: pointer;">
             <img src="{{ asset('rapiin/icon/ic_round-email.png') }}" class="icon"> 
-            <span>{{ $footer->email ?? 'contact@techade.id' }}</span>
+            <span>{{ !empty($footer->email) ? $footer->email : 'contact@techade.id' }}</span>
           </li>  
-          <li onclick="window.location.href='https://wa.me/{{ preg_replace('/[^0-9]/', '', $footer->kontak ?? '6287812066967') }}'" style="cursor: pointer;">
+          <li onclick="window.location.href='https://wa.me/{{ preg_replace('/[^0-9]/', '', !empty($footer->kontak) ? $footer->kontak : '6287812066967') }}'" style="cursor: pointer;">
             <img src="{{ asset('rapiin/icon/mingcute_phone-fill.png') }}" class="icon"> 
-            <span>{{ $footer->kontak ?? '+6287812066967' }}</span>
+            <span>{{ !empty($footer->kontak) ? $footer->kontak : '+6287812066967' }}</span>
           </li>
-          <li class="address" onclick="window.location.href='https://www.google.com/maps/search/?api=1&query={{ urlencode($footer->alamat ?? 'Palm Asri 2 Blk. G No.16, Mejen, Pedagangan, Kec. Dukuhwaru, Kabupaten Tegal, Jawa Tengah 52451') }}'" style="cursor: pointer;">
+          <li class="address" onclick="window.location.href='https://www.google.com/maps/search/?api=1&query={{ urlencode(!empty($footer->alamat) ? $footer->alamat : 'Palm Asri 2 Blk. G No.16, Mejen, Pedagangan, Kec. Dukuhwaru, Kabupaten Tegal, Jawa Tengah 52451') }}'" style="cursor: pointer;">
             <img src="{{ asset('rapiin/icon/mdi_address-marker (1).png') }}" class="icon">
-            <span>{{ $footer->alamat ?? 'Palm Asri 2 Blk. G No.16, Mejen, Pedagangan, Kec. Dukuhwaru, Kabupaten Tegal, Jawa Tengah 52451' }}</span>
+            <span>{{ !empty($footer->alamat) ? $footer->alamat : 'Palm Asri 2 Blk. G No.16, Mejen, Pedagangan, Kec. Dukuhwaru, Kabupaten Tegal, Jawa Tengah 52451' }}</span>
           </li>
         </ul>
       </div>

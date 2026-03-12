@@ -28,7 +28,8 @@
                         <th>TikTok</th>
                         <th>Email</th>
                         <th>Kontak</th>
-                        <th>Alamat & Lokasi</th> <th>Actions</th>
+                        <th>Alamat</th> 
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
