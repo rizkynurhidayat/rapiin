@@ -97,7 +97,7 @@
     let nomor = "6245678909876" //no telepon 
     let pesan = "Hai saya ingin berlangganan paket " + paketDipilih
     let url = "https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan)
-    window.open(url, "_blank")
+    window.location.href = url
     }
 
     window.onload = function(){

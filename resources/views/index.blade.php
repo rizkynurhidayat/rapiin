@@ -79,19 +79,19 @@
     <div class="card">
       <img src="{{ asset ('rapiin') }}/icon/openmoji_bar-chart.png" alt="Card Laporan Real-Time">
       <h3 class="poppins-semibold">Laporan Real-Time</h3>
-      <p class="inter-uniquifier">Pantau penjualan, laba, dan transaksi harian secara langsung.</p>
+      <p class="inter-uniquifier">Pantau penjualan, laba, dan transaksi harian secara langsung tanpa menunggu rekap manual.</p>
     </div>
 
     <div class="card">
       <img src="{{ asset ('rapiin') }}/icon/icon-park_box.png" alt="Card Manajemen Stok ">
       <h3 class="poppins-semibold">Manajemen Stok</h3>
-      <p class="inter-uniquifier">Stok otomatis berkurang saat transaksi, minim salah hitung.</p>
+      <p class="inter-uniquifier">Stok barang otomatis berkurang saat transaksi, minim salah hitung dan kehabisan barang.</p>
     </div>
 
     <div class="card">
       <img src="{{ asset ('rapiin') }}/icon/emojione_bank.png" alt="Integrasi Bank ">
       <h3 class="poppins-semibold">Integrasi Bank</h3>
-      <p class="inter-uniquifier">Pembayaran non-tunai dan mutasi bank tercatat rapi.</p>
+      <p class="inter-uniquifier">Terhubung dengan pembayaran non-tunai dan mutasi bank untuk pencatatan yang lebih rapi.</p>
     </div>
   </div>
 </section>
@@ -134,7 +134,7 @@
 
   <div class="demo">
     <h1>Bagaimana <span class="highlight">RAPIIN</span> POS Membantu Operasional Bisnis?</h1>
-    <video width="900" height="500" controls>
+    <video controls>
       <source src="{{ asset ('rapiin') }}/foto/Video.mp4" type="video/mp4">
     </video>
   </div>
@@ -165,7 +165,7 @@
                 @if($item->icon)
                     <div class="crown">
                         @if(Str::contains($item->icon, ['/', '.']))
-                            <img src="{{ asset('storage/' . $item->icon) }}" width="40">
+                            <img src="{{ asset('storage/' . $item->icon) }}" width="60">
                         @else
                             {{ $item->icon }}
                         @endif

@@ -50,7 +50,7 @@ class DatabaseSeeder extends Seeder
             'harga_lengkap' => 'Rp100.000 / Bulan',
             'teks_button' => 'Pilih Paket',
             'fitur' => 'Kasir Pro, Stok Barang, Laporan Lengkap, Support WA',
-            'icon' => '👑',
+            'icon' => null,
         ]);
 
         Pricing::create([

@@ -17,6 +17,24 @@ body {
   background-repeat: no-repeat;
 }
 
+.demo {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.demo h1 {
+    margin-bottom: 30px; /* Jarak dari teks ke bawah */
+}
+
+.demo video {
+    width: 100%;
+    max-width: 650px; 
+    height: auto;     /* Tinggi otomatis mengikuti proporsi video */
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
 .poppins-semibold {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
@@ -274,22 +292,50 @@ body {
 
 /* Responsif Mobile (Tumpuk ke bawah) */
 @media (max-width: 768px) {
-  .perbandingan-grid {
-    grid-template-columns: 1fr;
+ .perbandingan-grid {
+    display: flex;            /* Ubah grid jadi flex agar lebih mudah kontrol urutan */
+    flex-direction: column;   /* Tumpuk ke bawah */
+    align-items: center;      /* Pastikan SEMUA item (gambar & card) di tengah */
+    gap: 20px;
   }
-  
-  /* Supaya di HP gambar selalu muncul duluan baru teksnya */
-  .item-wrapper:nth-child(3) { order: 4; }
-  .item-wrapper:nth-child(4) { order: 3; }
-}
 
-.demo {
-  margin-top: 6%;
+  .item-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;  /* Mengetengahkan konten di dalam wrapper */
+  }
+
+  /* Samakan lebar Card dengan Gambar */
+  .card.banding {
+    max-width: 420px;         /* Sesuai lebar maksimal gambar Anda */
+    width: 90%;               /* Agar tidak mepet layar di HP kecil */
+    min-height: auto;
+    text-align: center;       /* Judul badge jadi ke tengah */
+    margin: 0 auto;
+  }
+
+  .card.banding ul {
+    display: inline-block;    /* List tetap rapi (rata kiri) tapi bloknya di tengah */
+    text-align: left;
+  }
+
+  /* Atur Urutan agar: Gambar1 -> Card1 -> Gambar2 -> Card2 */
+  .item-wrapper:nth-child(1) { order: 1; } /* Gambar Manual */
+  .item-wrapper:nth-child(2) { order: 2; } /* Card Manual */
+  .item-wrapper:nth-child(4) { order: 3; } /* Gambar Digital (Dipindah ke atas cardnya) */
+  .item-wrapper:nth-child(3) { order: 4; } /* Card Digital (Dipindah ke bawah gambarnya) */
 }
 
 .demo h1 {
-  margin-bottom: 20px;
-}
+        font-size: 22px; /* Perkecil ukuran judul di HP */
+        padding: 0 10px;
+    }
+
+    .demo video {
+        width: 95%;      /* Video memenuhi layar HP dengan sedikit margin */
+        max-width: none; 
+        border-radius: 12px;
+    }
 
 /* Perbandingan end*/
 
@@ -333,7 +379,7 @@ body {
 }
 
 .hero-img {
-  width: 700px;
+  width: 600px;
   border-radius: 0px;
   overflow: hidden;
 }
@@ -399,7 +445,7 @@ body {
 /* Hero end*/
 /* Fitur */
 .fitur {
-  padding: 100px 140px;
+  padding: 100px 20px; /* Diubah agar tidak terlalu sempit di samping */
   text-align: center;
   background: transparent !important;
 }
@@ -409,57 +455,56 @@ body {
   margin-bottom: 60px;
   color: white;
   font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
   font-weight: 700;
-  font-style: normal;
 }
 
-/* Card */
+/* Card Fitur Container */
 .card-fitur {
   display: flex;
   justify-content: center;
-  gap: 100px;
+  gap: 20px; /* Disamakan dengan gap pricing */
   flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.card {
+/* KUNCI: Samakan styling dengan Pricing */
+.fitur .card {
   background: #0b0f1a;
-  border-radius: 22px;
-  padding: 28px;
-  min-height: 300px;    
-  padding: 40px 25px;   
+  border-radius: 40px; /* Samakan kelengkungan dengan pricing */
+  padding: 40px 25px;
+  flex: 1;
+  min-width: 280px;
+  max-width: 340px; /* Lebar persis sama dengan pricing */
+  min-height: 320px;
   transition: 0.3s ease;
   border: 2px solid rgba(0, 240, 255, 0.35);
-  box-shadow:
-    0 0 15px rgba(0, 240, 255, 0.25),
-    0 0 30px rgba(0, 240, 255, 0.15),
-    inset 0 0 10px rgba(0, 240, 255, 0.08);
-
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
+  
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;   /* vertikal tengah */
-  text-align: center;  
+  text-align: center;
 }
 
-.card:hover {
-  transform: translateY(-10px);
-  border-color: #00f0ff;
-}
-
-.card img {
-  width: 48px;
-  height: 48px;
+.fitur .card img {
+  width: 70px;
+  height: 70px;
   background: #3e4347;
-  padding: 10px;
+  padding: 15px;
   border-radius: 50%;
-  margin-bottom: 35px;
-  margin-left: 12px;
+  margin-bottom: 25px;
 }
 
 .card h3 {
   margin-bottom: 28px;
-  font-size: 15px;
+  font-size: 20px;
+}
+
+.card p {
+  font-size: 15px;     
+  line-height: 1.6;
+  opacity: 0.9;
 }
 
 html {
@@ -583,14 +628,16 @@ html {
   .item-wrapper:nth-child(4) { order: 3; }
 }
 
-.demo {
-  margin-top: 6%;
-}
-
 .demo h1 {
-  margin-bottom: 20px;
-}
+        font-size: 22px; /* Perkecil ukuran judul di HP */
+        padding: 0 10px;
+    }
 
+    .demo video {
+        width: 95%;      /* Video memenuhi layar HP dengan sedikit margin */
+        max-width: none; 
+        border-radius: 12px;
+    }
 /* Perbandingan end*/
 .pricing-section {
   background-color: transparent !important; 
@@ -676,9 +723,11 @@ html {
 .crown {
   position: absolute;
   background: transparent;
-  top: -25px;
-  right: -15px;
-  font-size: 45px;
+  top: -17px;
+  right: -18px;
+  font-size: 60x;
+  background-size: 30px;
+ 
   rotate: 30deg;
 }
 
@@ -782,6 +831,56 @@ html {
   position: absolute;
   left: 0;
   color: #00e5ff;
+}
+@media (max-width: 768px) {
+  /* Container Utama */
+  .flex-wrapper {
+    display: flex;
+    flex-direction: column;    /* Menumpuk kartu ke bawah */
+    align-items: center;       /* Mengetengahkan kartu */
+    overflow-x: visible;       /* Matikan scroll horizontal */
+    padding: 30px 20px;
+    gap: 30px;                 /* Jarak antar kartu yang menumpuk */
+    scroll-snap-type: none;    /* Matikan fitur magnet scroll */
+  }
+
+  /* Hilangkan limit lebar agar kartu menyesuaikan layar HP */
+  .card {
+    width: 100%;               /* Kartu memenuhi lebar layar */
+    max-width: 350px;          /* Batas maksimal agar tidak terlalu lebar di tablet */
+    flex: none;                /* Matikan fungsi flex-grow agar ukuran stabil */
+    min-height: auto;
+    margin: 0 auto;
+    scroll-snap-align: none !important;
+  }
+
+  /* Sembunyikan horizontal scrollbar (jika masih ada) */
+  .flex-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+  /* Efek visual: Kartu yang sedang di tengah sedikit lebih besar */
+  .card:active {
+    transform: scale(0.98)!important;/* Efek saat ditekan/swipe */
+  }
+
+  /* Tipografi Dinamis */
+  .card h1 {
+    font-size: 24px !important;
+    line-height: 1.2;
+  }
+
+  .card-price {
+    font-size: 20px !important;
+  }
+
+  /* Tombol 'Pilih Paket' agar lebih lebar di HP */
+  .btn-pilih {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+  }
 }
 
 .Footer {
