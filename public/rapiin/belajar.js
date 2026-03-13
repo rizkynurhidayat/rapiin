@@ -91,3 +91,17 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 
 })
+document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault(); // Ini yang mencegah # muncul di URL
+        
+        // Logika kamu untuk pindah bulat-bulat/scroll ke section
+        const targetId = this.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
+        
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+
+        // Update class active untuk pindah bulat-bulatnya
+        // ... kode pindah bulat-bulat kamu ...
+    });
+});

@@ -17,6 +17,13 @@ body {
   background-repeat: no-repeat;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 80px; /* Sesuaikan dengan tinggi navbar kamu */
+}
 .demo {
     text-align: center;
     padding: 40px 20px;
@@ -64,26 +71,39 @@ body {
 }
 
 .logo {
-  height: 30px;
+  height: 38px;
 }
 
 .nav-menu {
   list-style: none;
   display: flex;
-  gap: 40px;
+  gap: 15px;
   background: #030A18;
-  padding: 16px 40px;
+  padding: 16px 2px !important;
   border-radius: 50px;
   border: 2px solid rgba(0, 110, 123, 0.4);
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-style: normal;
+  border-radius: 999px;
+  position: relative;
+  height: 55px !important;
+  
 }
 
 .menu{
   display: none;
 }
-
+.nav-indicator {
+  position: absolute;
+  background: #00152A;
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  border-radius: 999px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 0;
+  height: calc(100% - 16px); /* Mengikuti tinggi nav-menu dikurangi padding */
+  top: 8px;
+}
 .nav-menu:visited{
   background: #7c848c;}
 
@@ -92,7 +112,7 @@ body {
   color: rgba(255, 255, 255, 0.8);
   font-size: 15px;
   font-weight: 500;
-  padding: 10px 20px;
+  padding: 10px 30px;
   transition: 0.3s;
 }
 .nav-menu a:hover {
@@ -113,6 +133,7 @@ body {
   color: white;
   font-weight: bold;
   cursor: pointer;
+  height: 38px;
 }
 /* Navbar end */
 
@@ -347,16 +368,31 @@ body {
 
 /* Hero */
 .hero {
-  padding: 180px 80px 120px;
+  padding: 163px 80px 100px; 
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 3%;
+  margin-top: 0;
+}
+
+.hero-text {
+  /* Tambahkan ini untuk mendorong teks turun 3px secara independen */
+  margin-top: 3px;
 }
 
 .hero-text h2 {
   font-size: 36px;
   line-height: 1.3;
+  margin-top: 40px !important; 
+  margin-bottom: 20px !important; 
+}
+
+.hero-img {
+  width: 600px;
+  border-radius: 0px;
+  overflow: hidden;
+  display: flex;
+  margin-top: 3px; 
 }
 
 .highlight {
@@ -378,11 +414,6 @@ body {
   font-style: normal;
 }
 
-.hero-img {
-  width: 600px;
-  border-radius: 0px;
-  overflow: hidden;
-}
 
 /* .hero-img::after{
   content: '';
@@ -507,9 +538,7 @@ body {
   opacity: 0.9;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+
 /* Fitur */
 /* Perbandingan */
 .perbandingan {
@@ -858,7 +887,7 @@ html {
   .flex-wrapper::-webkit-scrollbar {
     display: none;
   }
-}
+
 
   /* Efek visual: Kartu yang sedang di tengah sedikit lebih besar */
   .card:active {
@@ -1253,4 +1282,7 @@ body.no-scroll{
   grid-column:1 / -1;
 }
 
+}
+html {
+  scroll-behavior: smooth;
 }
