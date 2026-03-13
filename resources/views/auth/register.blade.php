@@ -118,7 +118,7 @@
                       </g>
                     </svg>
                   </span>
-                  <span class="app-brand-text demo text-body fw-bolder">Techade</span>
+                  <h4 class="app-brand-text demo text-body fw-bolder">Techade</h4>
                 </a>
               </div>
               <!-- /Logo -->
