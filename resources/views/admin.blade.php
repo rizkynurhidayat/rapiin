@@ -16,7 +16,7 @@
                         <div class="card-body">
 
                             <h5 class="card-title text-primary">
-                                Selamat Datang di Menu Admin! 🎉
+                                Selamat Datang di Menu Admin RAPIIN Techade.id! 🎉
                             </h5>
 
                             <p class="mb-4">
