@@ -1286,3 +1286,9 @@ body.no-scroll{
 html {
   scroll-behavior: smooth;
 }
+.demo iframe{
+  width:100%;
+  max-width:900px;
+  height:500px;
+  border-radius:10px;
+}

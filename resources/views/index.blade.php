@@ -133,10 +133,15 @@
   </div>
 
   <div class="demo">
-    <h1>Bagaimana <span class="highlight">RAPIIN</span> POS Membantu Operasional Bisnis?</h1>
-    <video controls>
-      <source src="{{ asset ('rapiin') }}/foto/Video.mp4" type="video/mp4">
-    </video>
+      <h1>Bagaimana <span class="highlight">RAPIIN</span> POS Membantu Operasional Bisnis?</h1>
+      <iframe 
+        width="900"
+        height="500"
+        src="https://www.youtube.com/embed/PtM2B1vLVbI"
+        title="Demo RapIIN POS"
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
   </div>
 </section>
 <!-- Demo END -->
