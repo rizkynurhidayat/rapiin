@@ -84,6 +84,7 @@ class PricingController extends Controller
         ]);
     } else {
         unset($data['section_judul_awal'], $data['section_highlight_text'], $data['section_judul_akhir'], $data['section_sub_judul']);
+        $data['button'] = $request->teks_button;
     }
 
     // 3. Logika Upload Icon Baru

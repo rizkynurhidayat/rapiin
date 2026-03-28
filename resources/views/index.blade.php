@@ -60,7 +60,7 @@
         {{ $hero->judul_akhir }}
       </h2>
       
-     <button class="btn-hero" onclick="openPopup()">{{ $hero->button }}</button>
+     <button class="btn-hero" onclick="openPopup()">{{ $hero->teks_button }}</button>
     @endif
   </div>
   

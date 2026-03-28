@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
            'judul_awal'     => 'Kasir digital simpel buat',
            'highlight_text' => 'RAPIIN',
            'judul_akhir'    => 'bisnis kamu',
-           'button'         => 'Mulai Sekarang',
+           'teks_button'         => 'Uji Coba Gratis 7 Hari →',
            'image'          => 'hero/default.png',
         ]);
 
@@ -73,8 +73,6 @@ class DatabaseSeeder extends Seeder
             'email'     => 'contact@techade.id',
             'kontak'    => '+6287812066967',
             'alamat'    => 'Palm Asri 2 Blk. G No.16, Pedagangan, Kecamatan Dukuhwaru, Kabupaten Tegal, Jawa Tengah, 52451 Indonesia',
-            'latitude'  => '-6.976366', 
-            'longitude' => '109.120838',
         ]);
     }
 }

@@ -36,8 +36,7 @@ class FooterController extends Controller
             'email'     => 'nullable|email|max:255',
             'kontak'    => 'nullable|string|max:20',
             'alamat'    => 'nullable|string|max:255',
-            'latitude'  => 'nullable|string',
-            'longitude' => 'nullable|string',
+        
         ]);
 
         $footer->update($validated);

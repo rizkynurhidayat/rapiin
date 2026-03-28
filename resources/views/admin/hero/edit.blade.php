@@ -29,7 +29,7 @@
                 </div>
                 <div class="card-body">
 
-                   <form action="{{ route('admin.hero.update') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('admin.hero.update', $hero->id) }}" method="POST" enctype="multipart/form-data">
 
                     @csrf
 
@@ -54,9 +54,7 @@
                             <label class="col-sm-2 col-form-label">Teks Tombol</label>
 
                             <div class="col-sm-10">
-                                <input type="text" name="button" class="form-control" value="{{ old('button', $hero->button) }}">
-
-                                {{-- <small class="text-muted">*Ini akan muncul sebagai teks di dalam tombol utama.</small> --}}
+                                <input type="text" name="teks_button" class="form-control" value="{{ old('button', $hero->teks_button) }}">
                             </div>
                         </div>
 

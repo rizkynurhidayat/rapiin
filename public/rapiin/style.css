@@ -544,131 +544,130 @@ section {
 /* Fitur */
 /* Perbandingan */
 .perbandingan {
-  color: white;
-  text-align: center;
-  font-family: 'Inter', sans-serif;
+color: white;
+text-align: center;
+font-family: 'Inter', sans-serif;
 }
 
 .perbandingan .judul {
-  font-size: 28px; 
-  margin-bottom: 40px; 
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
+font-size: 28px; 
+margin-bottom: 40px; 
+font-family: "Inter", sans-serif;
+font-optical-sizing: auto;
+font-weight: 700;
+font-style: normal;
 }
 
 .perbandingan-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* Membagi 2 kolom */
-  gap: 40px;
-  max-width: 1000px;
-  margin: 0 auto;
-  align-items: center;
+display: grid;
+grid-template-columns: 1fr 1fr; /* Membagi 2 kolom */
+gap: 40px;
+max-width: 1000px;
+margin: 0 auto;
+align-items: center;
 }
 
 .img-banding {
-  width: 100%;
-  max-width: 420px;
-  border-radius: 20px;
+width: 100%;
+max-width: 420px;
+border-radius: 20px;
 }
 
 /* Base Card Style */
 .card.banding {
-  padding: 40px;
-  border-radius: 40px;
-  text-align: left;
-  position: relative;
-  min-height: 250px;
+padding: 40px;
+border-radius: 40px;
+text-align: left;
+position: relative;
+min-height: 250px;
 }
 
 /* Card Manual */
 .card.manual {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+background: rgba(255, 255, 255, 0.03);
+border: 1px solid rgba(255, 255, 255, 0.1);
+box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
 }
 
 /* Card Digital */
 .card.digital {
-  background: rgba(0, 210, 255, 0.05);
-  border: 2px solid #00d2ff;
-  box-shadow: 0 0 35px rgba(0, 210, 255, 0.35); /* Glow biru menyala */
+background: rgba(0, 210, 255, 0.05);
+border: 2px solid #00d2ff;
+box-shadow: 0 0 35px rgba(0, 210, 255, 0.35); /* Glow biru menyala */
 }
 
-/* Judul Badge  */
+/* Judul Badge  */
 .judul-badge {
-  display: inline-block;
-  padding: 8px 25px;
-  border-radius: 15px;
-  font-weight: bold;
-  font-size: 18px;
-  margin-bottom: 25px;
+display: inline-block;
+padding: 8px 25px;
+border-radius: 15px;
+font-weight: bold;
+font-size: 18px;
+margin-bottom: 25px;
 }
 
 .judul-badge.putih {
-  background: #ffffff;
-  color: #000000;
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
+background: #ffffff;
+color: #000000;
+font-family: "Inter", sans-serif;
+font-optical-sizing: auto;
+font-weight: 700;
+font-style: normal;
 }
 
 .judul-badge.biru {
-  background: linear-gradient(90deg, #00d2ff, #007bff);
-  color: #ffffff;
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
+background: linear-gradient(90deg, #00d2ff, #007bff);
+color: #ffffff;
+font-family: "Inter", sans-serif;
+font-optical-sizing: auto;
+font-weight: 700;
+font-style: normal;
 }
 
 /* Styling List */
 .card.banding ul {
-  list-style: none;
-  padding: 0;
+list-style: none;
+padding: 0;
 }
 
 .card.banding ul li {
-  font-size: 15px;
-  color: #cbd5e0;
-  margin-bottom: 12px;
-  padding-left: 25px;
-  position: relative;
+font-size: 15px;
+color: #cbd5e0;
+margin-bottom: 12px;
+padding-left: 25px;
+position: relative;
 }
 
 .card.banding ul li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: #fff;
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 1;
+content: "•";
+position: absolute;
+left: 0;
+color: #fff;
+font-weight: bold;
+font-size: 20px;
+line-height: 1;
 }
 
 /* Responsif Mobile (Tumpuk ke bawah) */
 @media (max-width: 768px) {
-  .perbandingan-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  /* Supaya di HP gambar selalu muncul duluan baru teksnya */
-  .item-wrapper:nth-child(3) { order: 4; }
-  .item-wrapper:nth-child(4) { order: 3; }
+.perbandingan-grid {
+grid-template-columns: 1fr;
+} 
+/* Supaya di HP gambar selalu muncul duluan baru teksnya */
+.item-wrapper:nth-child(3) { order: 4; }
+.item-wrapper:nth-child(4) { order: 3; }
 }
 
 .demo h1 {
-        font-size: 22px; /* Perkecil ukuran judul di HP */
-        padding: 0 10px;
-    }
+font-size: 22px; /* Perkecil ukuran judul di HP */
+ padding: 0 10px;
+ }
 
-    .demo video {
-        width: 95%;      /* Video memenuhi layar HP dengan sedikit margin */
-        max-width: none; 
-        border-radius: 12px;
-    }
+.demo video { width: 95%; /* Video memenuhi layar HP dengan sedikit margin */
+ max-width: none; /* Mencegah video membesar melebihi ukuran kontainer */
+border-radius: 12px;
+ }
+
 /* Perbandingan end*/
 .pricing-section {
   background-color: transparent !important; 
