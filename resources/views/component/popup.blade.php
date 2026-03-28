@@ -54,7 +54,7 @@
 
             <!-- RIGHT -->
             <div class="opsi-right">
-                <img src="{{ asset ('rapiin') }}/foto/rectangle 155.png" class="opsi-img">
+                <img src="{{ asset ('rapiin') }}/foto/Rectangle 155.png" class="opsi-img">
             </div>
         </div>
     </div>

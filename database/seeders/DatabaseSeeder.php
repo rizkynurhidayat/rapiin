@@ -62,19 +62,18 @@ class DatabaseSeeder extends Seeder
             'icon' => null,
         ]);
 
-        // 4. Footer Section - DATA SUDAH LENGKAP
+        // 4.
         Footer::create([
-            'twitter'   => 'https://twitter.com/rapiin',
-            'instagram' => 'https://instagram.com/rapiin',
-            'facebook'  => 'https://facebook.com/rapiin',
-            'linkedin'  => 'https://linkedin.com/company/rapiin', 
-            'whatsapp'  => 'https://wa.me/6287812066967',         
-            'tiktok'    => 'https://tiktok.com/@rapiin',
-            'email'     => 'contact@techade.id',
-            'kontak'    => '+6287812066967',
-            'alamat'    => 'Palm Asri 2 Blk. G No.16, Pedagangan, Kecamatan Dukuhwaru, Kabupaten Tegal, Jawa Tengah, 52451 Indonesia',
-            'latitude'  => '-6.976366', 
-            'longitude' => '109.120838',
+          'facebook'  => 'https://facebook.com/techade.id',
+          'instagram' => 'https://instagram.com/techade.id',
+          'twitter'   => 'https://x.com/techade_id',
+          'linkedin'  => 'https://www.linkedin.com/company/techade-id', 
+          'whatsapp'  => 'https://wa.me/6287812066967',
+          'tiktok'    => 'https://tiktok.com/@techade.id',
+          'email'     => 'contact@techade.id',
+          'kontak'    => '+6287812066967',
+          'alamat'    => 'Palm Asri 2 Blk. G No.16, Pedagangan, Kecamatan Dukuhwaru, Kabupaten Tegal, Jawa Tengah, 52451 Indonesia',
+           
         ]);
     }
 }

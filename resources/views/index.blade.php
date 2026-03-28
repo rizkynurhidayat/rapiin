@@ -135,8 +135,8 @@
   <div class="demo">
       <h1>Bagaimana <span class="highlight">RAPIIN</span> POS Membantu Operasional Bisnis?</h1>
       <iframe 
-        width="900"
-        height="500"
+        {{-- width="700px"
+        height="200px" --}}
         src="https://www.youtube.com/embed/PtM2B1vLVbI"
         title="Demo RapIIN POS"
         frameborder="0"
@@ -222,17 +222,17 @@
         </p>
         <div class="social-icons">
           <img src="{{ asset('rapiin/icon/gg_facebook.png') }}" alt="facebook" 
-               onclick="window.location.href='{{!empty($footer->facebook) ? $footer->facebook : 'https://www.facebook.com/profile.php?id=61556979945239&mibextid=LQQJ4d' }}'"style="cursor: pointer;" >
+               onclick="window.location.href='{{!empty($footer->facebook) ? $footer->facebook : 'https://www.facebook.com/techade.id' }}'"style="cursor: pointer;" >
           <img src="{{ asset('rapiin/icon/mdi_instagram.png') }}" alt="instagram" 
-               onclick="window.location.href='{{ !empty($footer->instagram) ? $footer->instagram : 'https://www.instagram.com/techade.id/' }}'"style="cursor: pointer;">
+               onclick="window.location.href='{{ !empty($footer->instagram) ? $footer->instagram : 'https://www.instagram.com/techade.id' }}'"style="cursor: pointer;">
           <img src="{{ asset('rapiin/icon/Clip path group.png') }}" alt="twitter" 
-               onclick="window.location.href='{{ !empty($footer->twitter) ? $footer->twitter : 'https://www.x.com/techade_id' }}'" style="cursor: pointer;">
+               onclick="window.location.href='{{ !empty($footer->twitter) ? $footer->twitter : 'https://x.com/techade_id' }}'" style="cursor: pointer;">
           <img src="{{ asset('rapiin/icon/ri_linkedin-fill.png') }}" alt="linkedin" 
-               onclick="window.location.href='{{ !empty($footer->linkedin) ? $footer->linkedin : 'https://www.linkedin.com/company/techade-id?originalSubdomain=id' }}'" style="cursor: pointer;">
+               onclick="window.location.href='{{ !empty($footer->linkedin) ? $footer->linkedin : 'https://www.linkedin.com/company/techade-id' }}'" style="cursor: pointer;">
           <img src="{{ asset('rapiin/icon/ic_baseline-whatsapp.png') }}" alt="whatsapp" 
                onclick="window.location.href='https://wa.me/{{ preg_replace('/[^0-9]/', '', !empty($footer->whatsapp) ? $footer->whatsapp : '6287812066967') }}'" style="cursor: pointer;">
           <img src="{{ asset('rapiin/icon/mingcute_tiktok-fill.png') }}" alt="tiktok" 
-               onclick="window.location.href='{{ !empty($footer->tiktok) ? $footer->tiktok : 'https://www.tiktok.com/@techade.id?_r=1&_t=ZS-94YoxxiMU4e' }}'" style="cursor: pointer;">
+               onclick="window.location.href='{{ !empty($footer->tiktok) ? $footer->tiktok : 'https://www.tiktok.com/@techade.id' }}'" style="cursor: pointer;">
         </div>
       </div>
 

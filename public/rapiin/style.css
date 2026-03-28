@@ -206,109 +206,108 @@ section {
 }
 
 /* Perbandingan */
+/* Perbandingan */
 .perbandingan {
   color: white;
   text-align: center;
   font-family: 'Inter', sans-serif;
+  padding: 80px 20px; /* Tambah padding atas agar scroll tidak nabrak navbar */
 }
 
+/* Judul Utama */
 .perbandingan .judul {
-  font-size: 28px; 
-  margin-bottom: 40px; 
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
+  font-size: clamp(22px, 5vw, 32px); /* Ukuran dinamis: kecil di HP, besar di Desktop */
+  margin-bottom: 30px; 
   font-weight: 700;
-  font-style: normal;
 }
 
+/* Grid Perbandingan (Kunci agar lebih ramping) */
 .perbandingan-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Membagi 2 kolom */
-  gap: 40px;
-  max-width: 1000px;
+  grid-template-columns: 1fr 1fr; 
+  gap: 20px; /* Perkecil jarak antar kolom */
+  max-width: 900px; /* Perkecil max-width dari 1000px agar lebih ramping */
   margin: 0 auto;
   align-items: center;
 }
 
 .img-banding {
   width: 100%;
-  max-width: 420px;
-  border-radius: 20px;
+  max-width: 380px; /* Perkecil sedikit ukuran gambar */
+  border-radius: 15px; /* Sesuaikan lengkungan */
+  height: auto;
 }
 
-/* Base Card Style */
+/* Base Card Style (Dibuat lebih ramping) */
 .card.banding {
-  padding: 40px;
-  border-radius: 40px;
+  padding: 25px 30px; /* Kurangi padding dari 40px */
+  border-radius: 25px; /* Kurangi radius agar tidak terlalu bulat */
   text-align: left;
   position: relative;
-  min-height: 250px;
-}
-
-/* Card Manual */
-.card.manual {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  min-height: auto; /* Biar tinggi mengikuti konten */
 }
 
 /* Card Digital */
 .card.digital {
   background: rgba(0, 210, 255, 0.05);
   border: 2px solid #00d2ff;
-  box-shadow: 0 0 35px rgba(0, 210, 255, 0.35); /* Glow biru menyala */
+  box-shadow: 0 0 20px rgba(0, 210, 255, 0.2); /* Glow dibuat lebih soft */
 }
 
-/* Judul Badge  */
+/* Judul Badge (Badge kecil di dalam card) */
 .judul-badge {
   display: inline-block;
-  padding: 8px 25px;
-  border-radius: 15px;
+  padding: 6px 20px;
+  border-radius: 12px;
   font-weight: bold;
-  font-size: 18px;
-  margin-bottom: 25px;
+  font-size: 14px; /* Perkecil font badge */
+  margin-bottom: 20px;
 }
 
-.judul-badge.putih {
-  background: #ffffff;
-  color: #000000;
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
+/* Responsif Mobile */
+@media (max-width: 768px) {
+  .perbandingan-grid {
+    grid-template-columns: 1fr;
+    gap: 15px; /* Jarak antar elemen di HP lebih rapat */
+  }
+  
+  /* Atur urutan agar Gambar dulu baru Teks di setiap baris */
+  .item-wrapper:nth-child(3) { order: 4; }
+  .item-wrapper:nth-child(4) { order: 3; }
+
+  .card.banding {
+    padding: 20px; /* Padding lebih kecil lagi di HP */
+  }
 }
 
-.judul-badge.biru {
-  background: linear-gradient(90deg, #00d2ff, #007bff);
-  color: #ffffff;
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
+/* --- Bagian Video Demo (Agar tidak meluber) --- */
+.demo {
+    margin-top: 60px;
+    padding: 0 20px;
 }
 
-/* Styling List */
-.card.banding ul {
-  list-style: none;
-  padding: 0;
+.demo h1 {
+    font-size: clamp(18px, 4vw, 24px);
+    margin-bottom: 25px;
 }
 
-.card.banding ul li {
-  font-size: 15px;
-  color: #cbd5e0;
-  margin-bottom: 12px;
-  padding-left: 25px;
-  position: relative;
+/* Kontainer Video Responsive */
+.responsive-video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* Rasio 16:9 */
+    height: 0;
+    overflow: hidden;
+    max-width: 750px; /* Ukuran video di desktop dibuat lebih ideal (tidak raksasa) */
+    margin: 0 auto;
+    border-radius: 12px;
 }
 
-.card.banding ul li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: #fff;
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 1;
+.responsive-video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 /* Responsif Mobile (Tumpuk ke bawah) */
@@ -542,98 +541,109 @@ section {
 
 
 /* Fitur */
-/* Perbandingan */
+/* --- SECTION PERBANDINGAN LENGKAP --- */
+
 .perbandingan {
   color: white;
   text-align: center;
   font-family: 'Inter', sans-serif;
+  padding: 60px 20px;
 }
 
 .perbandingan .judul {
   font-size: 28px; 
   margin-bottom: 40px; 
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
   font-weight: 700;
-  font-style: normal;
 }
 
+/* Grid Utama - Pengunci Kelurusan */
 .perbandingan-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* Membagi 2 kolom */
-  gap: 40px;
-  max-width: 1000px;
-  margin: 0 auto;
-  align-items: center;
+    display: grid;
+    /* Kolom kiri dan kanan dipaksa sama besar (50% - 50%) */
+    grid-template-columns: 1fr 1fr; 
+    /* Jarak antar kotak: 25px (atas-bawah), 40px (kiri-kanan) */
+    gap: 25px 40px; 
+    max-width: 1000px; 
+    margin: 0 auto;
+    /* KUNCI: Membuat tinggi gambar & card selalu sama dalam satu baris */
+    align-items: stretch; 
 }
 
+/* Item Wrapper */
+.item-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Gambar Style - Pengunci Lebar */
 .img-banding {
-  width: 100%;
-  max-width: 420px;
-  border-radius: 20px;
+    /* Harus 100% agar ujungnya lurus dengan kotak di bawah/atasnya */
+    width: 100%; 
+    height: 200px; /* Tinggi dasar gambar */
+    object-fit: cover; /* Agar gambar tidak gepeng saat ditarik */
+    border-radius: 20px;
 }
 
-/* Base Card Style */
+/* Base Card Style (Kotak Teks) */
 .card.banding {
-  padding: 40px;
-  border-radius: 40px;
-  text-align: left;
-  position: relative;
-  min-height: 250px;
+    width: 100%;
+    padding: 25px 35px; 
+    border-radius: 25px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Tulisan tetap di tengah secara vertikal */
+    height: 100%; /* Mengikuti tinggi grid yang di-stretch */
 }
 
-/* Card Manual */
+/* --- WARNA & DEKORASI --- */
+
+/* Card Manual (Putih Transparan) */
 .card.manual {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
 }
 
-/* Card Digital */
+/* Card Digital (Biru Glow) */
 .card.digital {
   background: rgba(0, 210, 255, 0.05);
   border: 2px solid #00d2ff;
-  box-shadow: 0 0 35px rgba(0, 210, 255, 0.35); /* Glow biru menyala */
+  box-shadow: 0 0 35px rgba(0, 210, 255, 0.35);
 }
 
-/* Judul Badge  */
+/* Judul Badge */
 .judul-badge {
   display: inline-block;
   padding: 8px 25px;
   border-radius: 15px;
   font-weight: bold;
   font-size: 18px;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 }
 
 .judul-badge.putih {
   background: #ffffff;
   color: #000000;
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
 }
 
 .judul-badge.biru {
   background: linear-gradient(90deg, #00d2ff, #007bff);
   color: #ffffff;
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
 }
 
-/* Styling List */
+/* List Style */
 .card.banding ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .card.banding ul li {
   font-size: 15px;
   color: #cbd5e0;
-  margin-bottom: 12px;
+  margin-bottom: 8px; 
   padding-left: 25px;
   position: relative;
 }
@@ -645,30 +655,41 @@ section {
   color: #fff;
   font-weight: bold;
   font-size: 20px;
-  line-height: 1;
 }
 
-/* Responsif Mobile (Tumpuk ke bawah) */
+/* Responsif Mobile (Tampilan HP) */
 @media (max-width: 768px) {
   .perbandingan-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Jadi satu kolom di HP */
+    gap: 20px;
   }
   
-  /* Supaya di HP gambar selalu muncul duluan baru teksnya */
+  .img-banding {
+    height: 180px;
+  }
+
+  /* Urutan di HP agar Gambar selalu di atas teksnya */
   .item-wrapper:nth-child(3) { order: 4; }
   .item-wrapper:nth-child(4) { order: 3; }
+
+
+/* --- VIDEO DEMO --- */
+.demo {
+    margin-top: 50px;
 }
 
 .demo h1 {
-        font-size: 22px; /* Perkecil ukuran judul di HP */
-        padding: 0 10px;
-    }
+    font-size: 24px;
+    margin-bottom: 20px;
+}
 
-    .demo video {
-        width: 95%;      /* Video memenuhi layar HP dengan sedikit margin */
-        max-width: none; 
-        border-radius: 12px;
-    }
+.demo video {
+    width: 90%;
+    max-width: 800px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+}
 /* Perbandingan end*/
 .pricing-section {
   background-color: transparent !important; 
