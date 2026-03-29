@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
            'judul_awal'     => 'Kasir digital simpel buat',
            'highlight_text' => 'RAPIIN',
            'judul_akhir'    => 'bisnis kamu',
-           'teks_button'         => 'Uji Coba Gratis 7 Hari →',
+           'button'        => 'Uji Coba Gratis 7 Hari →',
            'image'          => 'hero/default.png',
         ]);
 
@@ -64,12 +64,13 @@ class DatabaseSeeder extends Seeder
 
         // 4. Footer Section - DATA SUDAH LENGKAP
         Footer::create([
-            'twitter'   => 'https://twitter.com/rapiin',
-            'instagram' => 'https://instagram.com/rapiin',
-            'facebook'  => 'https://facebook.com/rapiin',
-            'linkedin'  => 'https://linkedin.com/company/rapiin', 
+            
+            'facebook'  => 'https://facebook.com/techade.id',
+            'instagram' => 'https://instagram.com/techade.id',
+            'twitter'   => 'https://x.com/techade_id',
+            'linkedin'  => 'https://www.linkedin.com/company/techade-id', 
             'whatsapp'  => 'https://wa.me/6287812066967',         
-            'tiktok'    => 'https://tiktok.com/@rapiin',
+            'tiktok'    => 'https://tiktok.com/@techade.id',
             'email'     => 'contact@techade.id',
             'kontak'    => '+6287812066967',
             'alamat'    => 'Palm Asri 2 Blk. G No.16, Pedagangan, Kecamatan Dukuhwaru, Kabupaten Tegal, Jawa Tengah, 52451 Indonesia',

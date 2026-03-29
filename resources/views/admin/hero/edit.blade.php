@@ -54,7 +54,7 @@
                             <label class="col-sm-2 col-form-label">Teks Tombol</label>
 
                             <div class="col-sm-10">
-                                <input type="text" name="teks_button" class="form-control" value="{{ old('button', $hero->teks_button) }}">
+                                <input type="text" name="button" class="form-control" value="{{ old('button', $hero->button) }}">
                             </div>
                         </div>
 

@@ -18,7 +18,7 @@ class HeroController extends Controller
             'judul_awal'     => 'Kasir digital simpel buat',
             'highlight_text' => 'RAPIIN',
             'judul_akhir'    => 'bisnis kamu',
-            'teks_button'     => 'Uji Coba Gratis 7 Hari →',
+            'button'         => 'Uji Coba Gratis 7 Hari →',
             'image'          => 'hero/default.png'
         ]);
 
@@ -36,11 +36,11 @@ class HeroController extends Controller
             'judul_awal'     => 'required|string|max:255',
             'highlight_text' => 'required|string|max:255',
             'judul_akhir'    => 'required|string|max:255',
-            'teks_button'    => 'required|string|max:255',
+            'button'         => 'required|string|max:255',
             'image'          => 'nullable|image|mimes:jpg,jpeg,png|max:2048'
         ]);
 
-        $data = $request->only(['judul_awal', 'highlight_text', 'judul_akhir', 'teks_button']);
+        $data = $request->only(['judul_awal', 'highlight_text', 'judul_akhir', 'button']);
 
         if ($request->hasFile('image')) {
             // Hapus gambar lama

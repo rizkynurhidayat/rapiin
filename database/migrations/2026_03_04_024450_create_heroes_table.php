@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('judul_akhir');     
             
             // Kolom pendukung
-            $table->string('teks_button');       
+            $table->string('button');       
             
             // Tambahkan nullable() di sini
             $table->string('image')->nullable(); 
