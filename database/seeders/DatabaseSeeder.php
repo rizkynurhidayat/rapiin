@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
            'judul_awal'     => 'Kasir digital simpel buat',
            'highlight_text' => 'RAPIIN',
            'judul_akhir'    => 'bisnis kamu',
-           'button'        => 'Uji Coba Gratis 7 Hari →',
+           'button'         => 'Uji Coba Gratis 7 Hari →',
            'image'          => 'hero/default.png',
         ]);
 
