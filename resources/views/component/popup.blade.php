@@ -62,45 +62,52 @@
 
 <script>
     const pricings = @json($pricings);
-    const popup = document.getElementById("popupPricing")
+    const popup = document.getElementById("popupPricing");
+    
+    // 1. Deklarasikan variabel global untuk menyimpan nama paket yang sedang aktif
+    let namaPaketAktif = ""; 
+
     function openPopup(index = 0){
-        popup.classList.add("active")
-        document.body.classList.add("no-scroll")
-        gantiPaket(index)
+        popup.classList.add("active");
+        document.body.classList.add("no-scroll");
+        gantiPaket(index);
     }
     
     function closePopup(){
-        popup.classList.remove("active")
-        document.body.classList.remove("no-scroll")
+        popup.classList.remove("active");
+        document.body.classList.remove("no-scroll");
     }
     
     function gantiPaket(index){
-        const paket = pricings[index]
-        paketDipilih = paket.harga_lengkap
-        const benefitList = document.getElementById("benefit-list")
-        benefitList.innerHTML = ""
-        const fitur = paket.fitur.split(",")
-        fitur.forEach(function(item){
-            benefitList.innerHTML += "<li>" + item.trim() + "</li>"
-        })
-        // ambil semua tombol paket
-        const buttons = document.querySelectorAll(".btn-opsi")
-        // hapus active semua
-        buttons.forEach(btn => btn.classList.remove("active"))
-        // kasih active ke tombol yang dipilih
-        buttons[index].classList.add("active")
+        const paket = pricings[index];
+        
+        // 2. Simpan nama paket ke variabel global (misal: "Trial", "Starter", atau "Bundling")
+        // Pastikan kolom di database kamu namanya benar (contoh: paket.nama_paket atau paket.harga_lengkap)
+        namaPaketAktif = paket.harga_lengkap; 
 
+        const benefitList = document.getElementById("benefit-list");
+        benefitList.innerHTML = "";
+        
+        const fitur = paket.fitur.split(",");
+        fitur.forEach(function(item){
+            benefitList.innerHTML += "<li>" + item.trim() + "</li>";
+        });
+
+        const buttons = document.querySelectorAll(".btn-opsi");
+        buttons.forEach(btn => btn.classList.remove("active"));
+        buttons[index].classList.add("active");
     }
 
     function mulaiSekarang(){
-    let paketDipilih = ""
-    let nomor = "6245678909876" //no telepon 
-    let pesan = "Hai saya ingin berlangganan paket " + paketDipilih
-    let url = "https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan)
-    window.location.href = url
+        // 3. Gunakan variabel global namaPaketAktif yang sudah diisi di gantiPaket()
+        let nomor = "6287812066967"; // Sesuaikan dengan nomor WA kamu
+        let pesan = "Hai, saya ingin berlangganan paket " + namaPaketAktif;
+        
+        let url = "https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan);
+        window.location.href = url; // Menggunakan window.location.href untuk membuka URL di tab yang sama
     }
 
     window.onload = function(){
-        gantiPaket(0)
+        gantiPaket(0);
     }
 </script>
