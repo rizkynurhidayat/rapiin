@@ -134,6 +134,24 @@ section {
   font-weight: bold;
   cursor: pointer;
   height: 38px;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+/* Saat kursor di atas tombol */
+.btn-nav:hover {
+  transform: translateY(-2px); /* Naik sedikit saja */
+  box-shadow: 0 8px 25px rgba(0, 240, 255, 0.5); /* Glow biru menyala */
+  filter: brightness(1.1); /* Sedikit lebih terang */
+  letter-spacing: 0.5px; /* Teks sedikit merenggang agar elegan */
+}
+
+/* Saat tombol diklik (Desktop & Mobile) */
+.btn-nav:active {
+  transform: translateY(0) scale(0.94); /* Efek membal ke dalam */
+  box-shadow: 0 2px 10px rgba(5, 117, 230, 0.4);
+  transition: all 0.1s ease; /* Transisi balik sangat cepat */
 }
 /* Navbar end */
 
@@ -231,9 +249,15 @@ section {
 }
 
 .img-banding {
-  width: 100%;
-  max-width: 420px;
-  border-radius: 20px;
+  height: 140px;
+    /* Naikkan dari 85% ke 92% agar lebih mengisi ruang kartu */
+    width: 92%;          
+    /* Naikkan batas maksimal agar di layar yang agak besar tidak kekecilan */
+    max-width: 350px;    
+    object-fit: cover;
+    border-radius: 20px;
+    display: block;
+    margin: 0 auto 20px auto; /* Tetap di tengah dengan jarak bawah 20px */
 }
 
 /* Base Card Style */
@@ -412,8 +436,27 @@ section {
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  
+}
+/* Efek saat kursor di atas tombol */
+.btn-hero:hover {
+  transform: translateY(-5px) scale(1.03); /* Naik sedikit & membesar tipis */
+  box-shadow: 0 12px 30px rgba(0, 240, 255, 0.5); /* Glow lebih luas */
+  filter: brightness(1.15); /* Lebih terang seolah tersorot lampu */
+  letter-spacing: 0.3px;
 }
 
+/* Efek saat tombol ditekan (Click/Tap) */
+.btn-hero:active {
+  transform: translateY(-2px) scale(0.96); /* Efek membal ke dalam */
+  box-shadow: 0 5px 15px rgba(5, 117, 230, 0.4);
+  filter: brightness(1);
+  transition: all 0.1s ease; /* Balik sangat cepat saat dilepas */
+}
 
 /* .hero-img::after{
   content: '';
@@ -448,7 +491,104 @@ section {
     transform: rotate(360deg);
   }
 } */
+ .glow-flow-wrapper-heavy {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Memotong cahaya agar jadi garis di pinggir */
+  
+  /* --- PERUBAHAN UTAMA: Lengkungan Halus --- */
+  border-radius: 12px !important; /* Nilai kecil untuk lengkungan halus/sedikit */
+  
+  padding: 6px; /* Bordernya dibuat lebih tebal agar neonnya kelihatan */
+  background: #000; /* Warna dasar di bawah gambar */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Bayangan gelap di bawah wrapper */
+}
 
+/* Gambar Hero Kamu */
+.hero-img {
+  position: relative;
+  z-index: 5; /* Supaya gambar ada di paling depan */
+  display: block;
+  width: 100%;
+  max-width: 600px; /* Sesuaikan lebar maksimal dashboardmu */
+  height: auto;
+  
+  /* --- PERUBAHAN UTAMA: Lengkungan Halus pada Gambar --- */
+  border-radius: 10px !important; /* Sedikit lebih kecil agar celah hitam konsisten */
+}
+
+/* --- KUNCI: NEON BERPUTAR (Lapis 1) --- */
+/* Garis tajam mengalir searah jarum jam */
+.glow-flow-wrapper-heavy::before {
+  content: '';
+  position: absolute;
+  width: 180%; 
+  height: 180%;
+  background: conic-gradient(
+    transparent 0%, 
+    transparent 15%, 
+    #00f0ff 30%, /* Warna Cyan Terang */
+    #0575E6 45%, /* Warna Biru */
+    #00f0ff 60%, /* Warna Cyan Terang */
+    transparent 75%
+  );
+  animation: flowRotateHeavy 4s linear infinite;
+  z-index: 2; /* Di bawah gambar */
+  opacity: 0.9;
+}
+
+/* --- KUNCI: NEON BERPUTAR (Lapis 2 - Kebalikan) --- */
+/* Garis lembut mengalir berlawanan arah jarum jam */
+.glow-flow-wrapper-heavy::after {
+  content: '';
+  position: absolute;
+  width: 180%; 
+  height: 180%;
+  background: conic-gradient(
+    transparent 0%, 
+    transparent 15%, 
+    #2f24ff 30%, /* Warna Biru Tua */
+    #00f0ff 45%, /* Warna Cyan */
+    #2f24ff 60%, /* Warna Biru Tua */
+    transparent 75%
+  );
+  animation: flowRotateHeavyReverse 4s linear infinite;
+  z-index: 1; /* Di bawah lapis 1 */
+  filter: blur(10px); /* Kunci agar tumpukannya terlihat padat dan lembut */
+  opacity: 0.8;
+}
+
+/* Pendaran Cahaya (Glow di luar kotak - Dibuat LEBIH BANAYKKK) */
+/* Gunakan box-shadow langsung di selektor induk untuk pendaran luar */
+.glow-flow-wrapper-heavy {
+  /* box-shadow: 0 0 100px 30px rgba(0, 240, 255, 0.4); Glow luar */
+  animation: glowPulseHeavy 4s infinite ease-in-out;
+}
+
+/* Penyesuaian selektor yang ganda di kode sebelumnya */
+.glow-flow-wrapper-heavy::before {
+  animation-delay: -1s;
+}
+
+/* Animasi Putar */
+@keyframes flowRotateHeavy {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Animasi Putar Kebalikan */
+@keyframes flowRotateHeavyReverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+/* Efek saat Hover (Makin Alus) */
+.glow-flow-wrapper-heavy:hover {
+  transform: scale(1.02);
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
 @media only screen and (max-width: 768px) {
   .hero {
     flex-direction: column-reverse;
@@ -539,7 +679,20 @@ section {
   line-height: 1.6;
   opacity: 0.9;
 }
+/* Efek Hover untuk Card Fitur */
+.fitur .card:hover {
+  transform: translateY(-10px); /* Card sedikit naik ke atas */
+  border-color: rgba(0, 240, 255, 0.8); /* Border jadi lebih menyala */
+  box-shadow: 0 15px 30px rgba(0, 240, 255, 0.2); /* Bayangan lebih dalam */
+  background: #0f172a; /* Sedikit mencerahkan background card saat dihover */
+  cursor: pointer;
+}
 
+/* Opsional: Efek pada gambar/icon saat card di-hover */
+.fitur .card:hover img {
+  transform: scale(1.1); /* Icon sedikit membesar */
+  transition: 0.3s ease;
+}
 
 /* Fitur */
 /* Perbandingan */
@@ -567,11 +720,13 @@ margin: 0 auto;
 align-items: center;
 }
 
+
 .img-banding {
-width: 100%;
-max-width: 420px;
-border-radius: 20px;
-}
+  width: 100%;
+  max-width: 420px;
+  border-radius: 20px;
+
+  }
 
 /* Base Card Style */
 .card.banding {
@@ -646,6 +801,22 @@ color: #fff;
 font-weight: bold;
 font-size: 20px;
 line-height: 1;
+} 
+/* Efek Hover Card Manual (Halus saja) */
+.card.manual:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* Efek Hover Card Digital (Lebih Menonjol/Glow) */
+.card.digital:hover {
+  transform: translateY(-10px) scale(1.02); /* Sedikit membesar */
+  box-shadow: 0 0 50px rgba(0, 210, 255, 0.5); /* Glow makin terang */
+  border-color: #00d2ff;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 /* Responsif Mobile (Tumpuk ke bawah) */
@@ -828,6 +999,10 @@ border-radius: 12px;
   cursor: pointer;
   box-shadow: 0 5px 15px rgba(0, 210, 255, 0.4);
   margin-bottom: 25px;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
 }
 
 .card-button3 {
@@ -861,6 +1036,32 @@ border-radius: 12px;
   position: absolute;
   left: 0;
   color: #00e5ff;
+}  
+/* Efek Hover pada Card Pricing */
+.pricing-section .card:hover {
+  transform: translateY(-12px) scale(1.02);
+  border-color: #00d2ff;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  background: #162235; /* Sedikit lebih terang dari warna dasar */
+  transition: all 0.3s ease;
+}
+
+/* Efek Hover khusus Card Active (Best Seller) */
+.card.active:hover {
+  box-shadow: 0 0 40px rgba(0, 210, 255, 0.4); /* Glow lebih kuat */
+}
+
+/* Efek Hover pada Tombol (Button) */
+.card-button:hover, .card-button3:hover {
+  filter: brightness(1.1); /* Membuat warna gradient lebih cerah */
+  transform: scale(1.03); /* Tombol sedikit membesar */
+  box-shadow: 0 8px 20px rgba(0, 210, 255, 0.6);
+  transition: 0.2s ease;
+}
+
+/* Efek saat Tombol diklik (Click Effect) */
+.card-button:active, .card-button3:active {
+  transform: scale(0.95); /* Efek membal saat diklik */
 }
 @media (max-width: 768px) {
   /* Container Utama */
@@ -1185,17 +1386,37 @@ body.no-scroll{
 .benefit-container li{
     margin-bottom:6px;
 }
-.btn{
-    display:inline-block;
-    margin-top:20px;
-    background:#686868;    
-    color:rgb(255, 255, 255);
-    padding:10px 20px;
-    border-radius:8px;
-    text-decoration:none;
-    font-weight:400;
-    width: 100%;
-    text-align: center;
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  background: #686868;    
+  color: rgb(255, 255, 255);
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 400;
+  width: 100%;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efek saat kursor masuk (Hover) */
+.btn:hover {
+  background: #505050; 
+  transform: translateY(-3px); /* Naik tipis saja agar tetap formal */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Bayangan lebih dalam */
+  color: #ffffff;
+  letter-spacing: 0.5px; /* Teks sedikit merenggang, sangat estetik */
+}
+
+/* Efek saat tombol ditekan (Click/Tap) */
+.btn:active {
+  transform: translateY(-1px) scale(0.98); /* Efek membal ke dalam */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.1s ease; /* Respon instan saat diklik */
 }
 .highlight{
     color:#2ed3d6;

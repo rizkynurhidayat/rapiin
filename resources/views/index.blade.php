@@ -65,7 +65,9 @@
   </div>
   
   @if($hero && $hero->image)
-    <img src="{{ str_contains($hero->image, 'hero/') ? asset('storage/' . $hero->image) : asset($hero->image) }}" class="hero-img">
+    <div class="glow-flow-wrapper-heavy">
+      <img src="{{ str_contains($hero->image, 'hero/') ? asset('storage/' . $hero->image) : asset($hero->image) }}" class="hero-img">
+    </div>
   @endif
 </section>
 <!-- Hero END -->
