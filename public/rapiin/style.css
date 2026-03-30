@@ -1017,6 +1017,10 @@ border-radius: 12px;
   cursor: pointer;
   box-shadow: 0 5px 15px rgba(0, 210, 255, 0.4);
   margin-bottom: 50px;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
 }
 
 .card-features { 
