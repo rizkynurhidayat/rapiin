@@ -491,103 +491,94 @@ section {
     transform: rotate(360deg);
   }
 } */
- .glow-flow-wrapper-heavy {
+.glow-flow-wrapper-heavy {
   position: relative;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden; /* Memotong cahaya agar jadi garis di pinggir */
-  
-  /* --- PERUBAHAN UTAMA: Lengkungan Halus --- */
-  border-radius: 12px !important; /* Nilai kecil untuk lengkungan halus/sedikit */
-  
-  padding: 6px; /* Bordernya dibuat lebih tebal agar neonnya kelihatan */
-  background: #000; /* Warna dasar di bawah gambar */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Bayangan gelap di bawah wrapper */
+  overflow: hidden;
+  border-radius: 12px !important;
+  padding: 6px;
+  background: #000;
+
+  /* Glow luar lebih stabil */
+  box-shadow: 0 0 40px rgba(0, 240, 255, 0.25);
 }
 
-/* Gambar Hero Kamu */
+/* Gambar */
 .hero-img {
   position: relative;
-  z-index: 5; /* Supaya gambar ada di paling depan */
+  z-index: 5;
   display: block;
   width: 100%;
-  max-width: 600px; /* Sesuaikan lebar maksimal dashboardmu */
+  max-width: 600px;
   height: auto;
-  
-  /* --- PERUBAHAN UTAMA: Lengkungan Halus pada Gambar --- */
-  border-radius: 10px !important; /* Sedikit lebih kecil agar celah hitam konsisten */
+  border-radius: 10px !important;
 }
 
-/* --- KUNCI: NEON BERPUTAR (Lapis 1) --- */
-/* Garis tajam mengalir searah jarum jam */
+/* Layer 1 (utama - tajam) */
 .glow-flow-wrapper-heavy::before {
   content: '';
   position: absolute;
-  width: 180%; 
-  height: 180%;
+  width: 140%;
+  height: 140%;
   background: conic-gradient(
-    transparent 0%, 
-    transparent 15%, 
-    #00f0ff 30%, /* Warna Cyan Terang */
-    #0575E6 45%, /* Warna Biru */
-    #00f0ff 60%, /* Warna Cyan Terang */
-    transparent 75%
+    from 0deg,
+    transparent 0deg,
+    transparent 220deg,
+    #00f0ff 260deg,
+    #0575E6 300deg,
+    #00f0ff 340deg,
+    transparent 360deg
   );
-  animation: flowRotateHeavy 4s linear infinite;
-  z-index: 2; /* Di bawah gambar */
-  opacity: 0.9;
+  animation: spinSmooth 6s linear infinite;
+  z-index: 2;
 }
 
-/* --- KUNCI: NEON BERPUTAR (Lapis 2 - Kebalikan) --- */
-/* Garis lembut mengalir berlawanan arah jarum jam */
+/* Layer 2 (blur - lembut) */
 .glow-flow-wrapper-heavy::after {
   content: '';
   position: absolute;
-  width: 180%; 
-  height: 180%;
+  width: 140%;
+  height: 140%;
   background: conic-gradient(
-    transparent 0%, 
-    transparent 15%, 
-    #2f24ff 30%, /* Warna Biru Tua */
-    #00f0ff 45%, /* Warna Cyan */
-    #2f24ff 60%, /* Warna Biru Tua */
-    transparent 75%
+    from 180deg,
+    transparent 0deg,
+    transparent 220deg,
+    #2f24ff 260deg,
+    #00f0ff 300deg,
+    #2f24ff 340deg,
+    transparent 360deg
   );
-  animation: flowRotateHeavyReverse 4s linear infinite;
-  z-index: 1; /* Di bawah lapis 1 */
-  filter: blur(10px); /* Kunci agar tumpukannya terlihat padat dan lembut */
-  opacity: 0.8;
+  animation: spinSmoothReverse 6s linear infinite;
+  z-index: 1;
+  filter: blur(12px);
+  opacity: 0.7;
 }
 
-/* Pendaran Cahaya (Glow di luar kotak - Dibuat LEBIH BANAYKKK) */
-/* Gunakan box-shadow langsung di selektor induk untuk pendaran luar */
-.glow-flow-wrapper-heavy {
-  /* box-shadow: 0 0 100px 30px rgba(0, 240, 255, 0.4); Glow luar */
-  animation: glowPulseHeavy 4s infinite ease-in-out;
+/* Animasi lebih halus */
+@keyframes spinSmooth {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
-/* Penyesuaian selektor yang ganda di kode sebelumnya */
-.glow-flow-wrapper-heavy::before {
-  animation-delay: -1s;
+@keyframes spinSmoothReverse {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
-/* Animasi Putar */
-@keyframes flowRotateHeavy {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* Animasi Putar Kebalikan */
-@keyframes flowRotateHeavyReverse {
-  from { transform: rotate(360deg); }
-  to { transform: rotate(0deg); }
-}
-
-/* Efek saat Hover (Makin Alus) */
+/* Hover lebih smooth */
 .glow-flow-wrapper-heavy:hover {
   transform: scale(1.02);
-  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.4s ease;
 }
 @media only screen and (max-width: 768px) {
   .hero {
