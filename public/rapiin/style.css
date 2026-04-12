@@ -139,19 +139,18 @@ section {
   position: relative;
   overflow: hidden;
 }
-/* Saat kursor di atas tombol */
+
 .btn-nav:hover {
-  transform: translateY(-2px); /* Naik sedikit saja */
-  box-shadow: 0 8px 25px rgba(0, 240, 255, 0.5); /* Glow biru menyala */
-  filter: brightness(1.1); /* Sedikit lebih terang */
-  letter-spacing: 0.5px; /* Teks sedikit merenggang agar elegan */
+  transform: translateY(-2px); 
+  box-shadow: 0 8px 25px rgba(0, 240, 255, 0.5); 
+  filter: brightness(1.1); 
+  letter-spacing: 0.5px; 
 }
 
-/* Saat tombol diklik (Desktop & Mobile) */
 .btn-nav:active {
-  transform: translateY(0) scale(0.94); /* Efek membal ke dalam */
+  transform: translateY(0) scale(0.94); 
   box-shadow: 0 2px 10px rgba(5, 117, 230, 0.4);
-  transition: all 0.1s ease; /* Transisi balik sangat cepat */
+  transition: all 0.1s ease; 
 }
 /* Navbar end */
 
@@ -442,20 +441,19 @@ section {
   overflow: hidden;
   
 }
-/* Efek saat kursor di atas tombol */
+
 .btn-hero:hover {
-  transform: translateY(-5px) scale(1.03); /* Naik sedikit & membesar tipis */
-  box-shadow: 0 12px 30px rgba(0, 240, 255, 0.5); /* Glow lebih luas */
-  filter: brightness(1.15); /* Lebih terang seolah tersorot lampu */
+  transform: translateY(-5px) scale(1.03); 
+  box-shadow: 0 12px 30px rgba(0, 240, 255, 0.5); 
+  filter: brightness(1.15); 
   letter-spacing: 0.3px;
 }
 
-/* Efek saat tombol ditekan (Click/Tap) */
 .btn-hero:active {
-  transform: translateY(-2px) scale(0.96); /* Efek membal ke dalam */
+  transform: translateY(-2px) scale(0.96); 
   box-shadow: 0 5px 15px rgba(5, 117, 230, 0.4);
   filter: brightness(1);
-  transition: all 0.1s ease; /* Balik sangat cepat saat dilepas */
+  transition: all 0.1s ease; 
 }
 
 /* .hero-img::after{
@@ -500,12 +498,10 @@ section {
   border-radius: 12px !important;
   padding: 6px;
   background: #000;
-
-  /* Glow luar lebih stabil */
   box-shadow: 0 0 40px rgba(0, 240, 255, 0.25);
 }
 
-/* Gambar */
+
 .hero-img {
   position: relative;
   z-index: 5;
@@ -516,7 +512,7 @@ section {
   border-radius: 10px !important;
 }
 
-/* Layer 1 (utama - tajam) */
+
 .glow-flow-wrapper-heavy::before {
   content: '';
   position: absolute;
@@ -535,7 +531,6 @@ section {
   z-index: 2;
 }
 
-/* Layer 2 (blur - lembut) */
 .glow-flow-wrapper-heavy::after {
   content: '';
   position: absolute;
@@ -556,7 +551,7 @@ section {
   opacity: 0.7;
 }
 
-/* Animasi lebih halus */
+/* Animasi*/
 @keyframes spinSmooth {
   0% {
     transform: rotate(0deg);
@@ -575,7 +570,7 @@ section {
   }
 }
 
-/* Hover lebih smooth */
+/* Hover*/
 .glow-flow-wrapper-heavy:hover {
   transform: scale(1.02);
   transition: transform 0.4s ease;
@@ -670,18 +665,18 @@ section {
   line-height: 1.6;
   opacity: 0.9;
 }
-/* Efek Hover untuk Card Fitur */
+
 .fitur .card:hover {
-  transform: translateY(-10px); /* Card sedikit naik ke atas */
-  border-color: rgba(0, 240, 255, 0.8); /* Border jadi lebih menyala */
-  box-shadow: 0 15px 30px rgba(0, 240, 255, 0.2); /* Bayangan lebih dalam */
-  background: #0f172a; /* Sedikit mencerahkan background card saat dihover */
+  transform: translateY(-10px); 
+  border-color: rgba(0, 240, 255, 0.8); 
+  box-shadow: 0 15px 30px rgba(0, 240, 255, 0.2); 
+  background: #0f172a; 
   cursor: pointer;
 }
 
-/* Opsional: Efek pada gambar/icon saat card di-hover */
+
 .fitur .card:hover img {
-  transform: scale(1.1); /* Icon sedikit membesar */
+  transform: scale(1.1); 
   transition: 0.3s ease;
 }
 
@@ -793,7 +788,7 @@ font-weight: bold;
 font-size: 20px;
 line-height: 1;
 } 
-/* Efek Hover Card Manual (Halus saja) */
+
 .card.manual:hover {
   transform: translateY(-5px);
   background: rgba(255, 255, 255, 0.06);
@@ -801,7 +796,7 @@ line-height: 1;
   transition: all 0.3s ease;
 }
 
-/* Efek Hover Card Digital (Lebih Menonjol/Glow) */
+
 .card.digital:hover {
   transform: translateY(-10px) scale(1.02); /* Sedikit membesar */
   box-shadow: 0 0 50px rgba(0, 210, 255, 0.5); /* Glow makin terang */
@@ -1032,31 +1027,30 @@ border-radius: 12px;
   left: 0;
   color: #00e5ff;
 }  
-/* Efek Hover pada Card Pricing */
+
 .pricing-section .card:hover {
   transform: translateY(-12px) scale(1.02);
   border-color: #00d2ff;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-  background: #162235; /* Sedikit lebih terang dari warna dasar */
+  background: #162235; 
   transition: all 0.3s ease;
 }
 
-/* Efek Hover khusus Card Active (Best Seller) */
+
 .card.active:hover {
-  box-shadow: 0 0 40px rgba(0, 210, 255, 0.4); /* Glow lebih kuat */
+  box-shadow: 0 0 40px rgba(0, 210, 255, 0.4); 
 }
 
-/* Efek Hover pada Tombol (Button) */
 .card-button:hover, .card-button3:hover {
-  filter: brightness(1.1); /* Membuat warna gradient lebih cerah */
-  transform: scale(1.03); /* Tombol sedikit membesar */
+  filter: brightness(1.1); 
+  transform: scale(1.03); 
   box-shadow: 0 8px 20px rgba(0, 210, 255, 0.6);
   transition: 0.2s ease;
 }
 
-/* Efek saat Tombol diklik (Click Effect) */
+
 .card-button:active, .card-button3:active {
-  transform: scale(0.95); /* Efek membal saat diklik */
+  transform: scale(0.95); 
 }
 @media (max-width: 768px) {
   /* Container Utama */

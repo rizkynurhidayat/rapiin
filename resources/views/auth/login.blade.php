@@ -151,8 +151,10 @@
                     autofocus
                     />
                   </div>
-                  @error('password')
-                  <p>{{$message}}</p>
+                  @error('email')
+                  <div class="alert alert-danger p-2 mt-2">
+                  {{ $message }}
+                  </div>
                   @enderror
                   <div class="mb-3 form-password-toggle">
                     <div class="d-flex justify-content-between">
@@ -180,8 +182,10 @@
                   </div>
                 </div> -->
 
-                @error('email')
-                <p>{{$message}}</p>
+                @error('password')
+                <div class="alert alert-danger p-2 mt-2">
+                {{ $message }}
+                </div>
                 @enderror
                 <div class="mb-3">
                   <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
