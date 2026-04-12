@@ -64,7 +64,6 @@
     const pricings = @json($pricings);
     const popup = document.getElementById("popupPricing");
     
-    // 1. Deklarasikan variabel global untuk menyimpan nama paket yang sedang aktif
     let namaPaketAktif = ""; 
 
     function openPopup(index = 0){
@@ -81,8 +80,7 @@
     function gantiPaket(index){
         const paket = pricings[index];
         
-        // 2. Simpan nama paket ke variabel global (misal: "Trial", "Starter", atau "Bundling")
-        // Pastikan kolom di database kamu namanya benar (contoh: paket.nama_paket atau paket.harga_lengkap)
+    
         namaPaketAktif = paket.harga_lengkap; 
 
         const benefitList = document.getElementById("benefit-list");
@@ -99,12 +97,11 @@
     }
 
     function mulaiSekarang(){
-        // 3. Gunakan variabel global namaPaketAktif yang sudah diisi di gantiPaket()
-        let nomor = "6287812066967"; // Sesuaikan dengan nomor WA kamu
+        let nomor = "6287812066967"; 
         let pesan = "Hai, saya ingin berlangganan paket " + namaPaketAktif;
         
         let url = "https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan);
-        window.location.href = url; // Menggunakan window.location.href untuk membuka URL di tab yang sama
+        window.location.href = url; 
     }
 
     window.onload = function(){
