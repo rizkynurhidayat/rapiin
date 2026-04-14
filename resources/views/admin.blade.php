@@ -15,7 +15,7 @@
                     <div class="col-md-8">
                         <div class="card-body">
 
-                            <h5 class="card-title text-primary">
+                            <h5 class="card-title text-cyan">
                                 Selamat Datang di Menu Admin RAPIIN Techade.id! 🎉
                             </h5>
 
@@ -35,8 +35,6 @@
                                 src="{{ asset('sneat/assets/img/illustrations/man-with-laptop-light.png') }}"
                                 height="150"
                                 alt="Welcome Admin Illustration"
-                                data-app-dark-img="illustrations/man-with-laptop-dark.png"
-                                data-app-light-img="illustrations/man-with-laptop-light.png"
                             />
 
                         </div>

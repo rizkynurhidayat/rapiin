@@ -78,7 +78,7 @@
               </a>
             </li>
             <!-- Hero Section -->
-            <li class="menu-item {{ request()->routeIs('hero.*') ? 'active' : '' }}">
+            <li class="menu-item {{ request()->routeIs('admin.hero.edit') ? 'active' : '' }}">
                 <a href="{{ route('admin.hero.edit') }}" class="menu-link">
                     <i class="menu-icon tf-icons bx bx-crown"></i>
                     <div data-i18n="Hero Section">Hero Section</div>

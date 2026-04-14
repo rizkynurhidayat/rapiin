@@ -8,6 +8,13 @@
         <span class="text-muted fw-light"></span> Users Data
     </h4>
 
+    @if (session('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ session('success') }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+   @endif
+
     <div class="card">
 
         <div class="card-header d-flex justify-content-between align-items-center">
@@ -41,7 +48,7 @@
                         </td>
 
                         <td>
-                            <span class="badge bg-label-primary">
+                            <span class="badge bg-label-info">
                                 Admin
                             </span>
                         </td>

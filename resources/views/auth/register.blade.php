@@ -96,13 +96,13 @@
                               <mask id="mask-2" fill="white">
                                 <use xlink:href="#path-1"></use>
                               </mask>
-                              <use fill="#00f0ff" xlink:href="#path-1"></use>
+                              <use fill="#4dd0e1" xlink:href="#path-1"></use>
                               <g id="Path-3" mask="url(#mask-2)">
-                                <use fill="#00f0ff" xlink:href="#path-3"></use>
+                                <use fill="#4dd0e1" xlink:href="#path-3"></use>
                                 <use fill-opacity="0.2" fill="#FFFFFF" xlink:href="#path-3"></use>
                               </g>
                               <g id="Path-4" mask="url(#mask-2)">
-                                <use fill="#00f0ff" xlink:href="#path-4"></use>
+                                <use fill="#4dd0e1" xlink:href="#path-4"></use>
                                 <use fill-opacity="0.2" fill="#FFFFFF" xlink:href="#path-4"></use>
                               </g>
                             </g>
@@ -110,7 +110,7 @@
                               id="Triangle"
                               transform="translate(19.000000, 11.000000) rotate(-300.000000) translate(-19.000000, -11.000000) "
                             >
-                              <use fill="#00f0ff"" xlink:href="#path-5"></use>
+                              <use fill="#4dd0e1"" xlink:href="#path-5"></use>
                               <use fill-opacity="0.2" fill="#FFFFFF" xlink:href="#path-5"></use>
                             </g>
                           </g>
@@ -131,17 +131,28 @@
                   <label for="name" class="form-label">Username</label>
                   <input
                     type="text"
-                    class="form-control"
+                    class="form-control @error('name') is-invalid @enderror"
                     id="name"
                     name="name"
+                     value="{{ old('name') }}"
                     placeholder="Enter your name"
                     autofocus
                   />
-                </div>
+                    @error('name')
+                     <div class="alert alert-danger p-2 mt-2">
+                    {{ $message }}
+                     </div>
+                     @enderror
+                  </div>
                 <div class="mb-3">
                   <label for="email" class="form-label">Email</label>
                   <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email" />
                 </div>
+                @error('email')
+                <div class="alert alert-danger p-2 mt-2">
+               {{ $message }}
+                </div>
+               @enderror
                 <div class="mb-3 form-password-toggle">
                   <label class="form-label" for="password">Password</label>
                   <div class="input-group input-group-merge">
@@ -154,6 +165,11 @@
                       aria-describedby="password"
                     />
                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                     @error('password')
+                    <div class="alert alert-danger p-2 mt-2">
+                   {{ $message }}
+                    </div>
+                   @enderror
                   </div>
                 </div>
 

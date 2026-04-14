@@ -31,9 +31,9 @@
                                 type="text"
                                 id="email"
                                 name="email"
-                                class="form-control"
+                                class="form-control @error('email') is-invalid @enderror"
                                 placeholder="john.doe"
-                                value="{{$user->email}}"
+                                value="{{ old('email', $user->email) }}"
                                 aria-label="john.doe"
                                 aria-describedby="basic-default-email2"
                               />
@@ -42,6 +42,7 @@
                             
                           </div>
                         </div>
+                        <div class="row mb-3">
                         <div class="row justify-content-end">
                           <div class="col-sm-10">
                             <button type="submit" class="btn btn-primary">Send</button>

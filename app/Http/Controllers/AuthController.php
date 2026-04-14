@@ -28,7 +28,8 @@ class AuthController extends Controller
         }
         //ketika gagal login
         return back()->withErrors([
-            'email' => 'email dan password tidak sesuai'
+             'email' => 'Email not recognized',
+             'password' => 'Incorrect password'
         ]);
     }
 
@@ -46,7 +47,7 @@ class AuthController extends Controller
 
     public function register(Request $request) {
          $validator = $request ->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|min:5',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:6'
         ]);

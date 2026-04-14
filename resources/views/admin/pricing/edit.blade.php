@@ -14,7 +14,7 @@
         {{-- BAGIAN 1: HEADER SECTION (Hanya untuk Paket ID 1) --}}
         @if($pricing->id == 1)
         <div class="card mb-4 border-primary">
-            <div class="card-header bg-primary text-white">
+            <div class="card-header text-white" style="background:#4dd0e1;">
                 <h5 class="mb-0 text-white">Pengaturan Judul Utama (Section Header)</h5>
             </div>
             <div class="card-body mt-3">
